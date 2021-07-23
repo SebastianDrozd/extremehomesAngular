@@ -1,0 +1,83 @@
+<div class="container">
+   <div *ngIf="addTable">
+   
+   </div>
+<div *ngIf="wantsMaterials; else elseBlock">
+  <br>
+  <br>
+  <div class="row">
+    <h2 style="margin-left: 15px;"><small class="text-muted">Add Material</small></h2>
+    <div style="" class="input-group col-md-2">
+      <input type="text" class="form-control" placeholder="Material Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+      
+    </div>
+    <div class="input-group col-md-4">
+      <input sty type="text" class="form-control" placeholder="Material Description" aria-label="Recipient's username" aria-describedby="button-addon2">
+      
+    </div>
+    <div class="input-group col-md-2">
+      <input sty type="text" class="form-control" placeholder="Material Cost" aria-label="Recipient's username" aria-describedby="button-addon2">
+      
+    </div>
+    <div class="input-group col-md-2">
+     <button class="btn btn-outline-success">Add</button>
+      
+    </div>
+  </div>
+  <table class="table" style="margin-top: 2em;">
+   
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Task</th>
+        <th scope="col">Description</th>
+        <th scope="col">Priority</th>
+        <th scope="col"></th>
+   
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>2</td>
+        <td><button class="btn btn-outline-danger">Delete</button>></td>
+      
+       
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>4</td>
+        <td><button class="btn btn-outline-danger">Delete</button></td>
+    
+        
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Larry</td>
+        <td>1</td>
+        <td><button class="btn btn-outline-danger">Delete</button></td>
+  
+       
+      </tr>
+    </tbody>
+  </table>
+    <h1 class="display-6 text-center questionmaterials2" style="margin-top:2em ;"><small class="text-muted">Add a general description for your materials</small></h1>
+    <br>
+    <div style="padding-bottom: 2em;" class="col-md-12">
+        <textarea style="border-radius: 40px;" rows="10" class="form-control" id="exampleFormControlTextarea1" ></textarea>
+      </div>
+      <div class="col-12">
+            
+        <button style="margin-left: 3px;background-color: #5cb85c;" class="btn btn-primary float-right" type="submit"><a routerLink="pictures">Continue</a> </button>
+        <button style="background-color: white;color: black; min-width: 5em;" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;"routerLink="../">Back</a>  </button>
+      </div>
+</div>
+<ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials"><small class="text-muted">Would you like to add materials to this estimate?</small></h1>
+    <div class="text-center buttonsquestions">
+        <button style="margin-right: 2em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="border: 1px solid black"class="btn">No</button>
+    </div></ng-template>
+</div>
+<br>
+<br>
+<br>

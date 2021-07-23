@@ -1,0 +1,54 @@
+<div class="container">
+    <br>
+ <div *ngIf="wantsPictures; else elseBlock">
+   <br>
+   <br>
+    <br>
+
+<!-- Upload  -->
+<form id="file-upload-form" class="uploader">
+  <input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+
+  <label for="file-upload" id="file-drag">
+    <img id="file-image" src="#" alt="Preview" class="hidden">
+    <div id="start">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+            <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+            <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+          </svg>
+      <div>Select a file or drag here</div>
+      <div id="notimage" class="hidden">Please select an image</div>
+      <span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+    </div>
+    <div id="response" class="hidden">
+      <div id="messages"></div>
+      <progress class="progress" id="file-progress" value="0">
+        <span>0</span>%
+      </progress>
+    </div>
+  </label>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="" style="display: block;">
+            
+    <button style="margin-left: 3px;background-color: #5cb85c;" class="btn btn-primary float-right" type="submit"><a routerLink="summary">Continue</a> </button>
+    <button style="background-color: white;color: black; min-width: 5em;" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;"routerLink="../">Back</a>  </button>
+  </div>      
+ </div>
+ <ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials"><small class="text-muted">Would you like to add Pictures to this estimate?</small></h1>
+     <div class="text-center buttonsquestions">
+         <button style="margin-right: 2em; background-color: cornflowerblue; color: white;" (click)="addPictures()" class="btn">Yes</button><button style="border: 1px solid black"class="btn">No</button>
+     </div></ng-template>
+ </div>
+ <br>
+ <br>
+ <br>

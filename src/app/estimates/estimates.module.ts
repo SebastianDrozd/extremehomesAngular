@@ -8,6 +8,9 @@ import { CreateestimateComponent } from './createestimate/createestimate.compone
 import { CreatecustomerComponent } from './createestimate/createcustomer/createcustomer.component';
 import { ProgressComponent } from './createestimate/progress/progress.component';
 import { WorkComponent } from './createestimate/work/work.component';
+import { AdditionalinfoComponent } from './createestimate/additionalinfo/additionalinfo.component';
+import { PicturesComponent } from './createestimate/pictures/pictures.component';
+import { SummaryComponent } from './createestimate/summary/summary.component';
 
 
 @NgModule({
@@ -17,7 +20,10 @@ import { WorkComponent } from './createestimate/work/work.component';
     CreateestimateComponent,
     CreatecustomerComponent,
     ProgressComponent,
-    WorkComponent
+    WorkComponent,
+    AdditionalinfoComponent,
+    PicturesComponent,
+    SummaryComponent
   ],
   imports: [
     CommonModule,
