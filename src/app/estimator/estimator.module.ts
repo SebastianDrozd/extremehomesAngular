@@ -5,6 +5,7 @@ import { EstimatorRoutingModule } from './estimator-routing.module';
 import { EstimatorhomeComponent } from './estimatorhome/estimatorhome.component';
 import { RecenttableComponent } from './estimatorhome/recenttable/recenttable.component';
 import { ShortcutsComponent } from './estimatorhome/shortcuts/shortcuts.component';
+import { RecentcusttableComponent } from './estimatorhome/recentcusttable/recentcusttable.component';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { ShortcutsComponent } from './estimatorhome/shortcuts/shortcuts.componen
     EstimatorhomeComponent,
     RecenttableComponent,
     ShortcutsComponent,
+    RecentcusttableComponent,
     
   ],
   imports: [

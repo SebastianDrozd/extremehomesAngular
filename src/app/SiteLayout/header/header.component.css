@@ -6,10 +6,11 @@
     display: flex;
     color: white;
     list-style: none;
+    margin-right: 6em;
 }
 .navbar ul li{
     padding-top: 1em;
-    padding-left: 1em;
+    padding-left: 2em;
     
 }
 .navbar ul li:hover{
