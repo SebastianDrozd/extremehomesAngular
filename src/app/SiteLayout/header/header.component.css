@@ -1,0 +1,27 @@
+.navbar{
+    padding: 1em;
+    background-color: cornflowerblue;
+}
+.navbar ul {
+    display: flex;
+    color: white;
+    list-style: none;
+}
+.navbar ul li{
+    padding-top: 1em;
+    padding-left: 1em;
+    
+}
+.navbar ul li:hover{
+    color: #64edbd;
+    cursor: pointer;
+    
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+#logo{
+    color: white;
+    cursor: pointer;
+}

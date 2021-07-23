@@ -1,0 +1,15 @@
+.sidebar{
+    
+    min-height: 40em;
+    border-right: 1px solid rgb(230, 233, 240);
+}
+.sidebar ul li{
+    text-decoration: none;
+    padding: 1em;
+    padding-left: 2em;
+    border-bottom: 1px solid rgb(230, 233, 240);
+}
+.sidebar ul li:hover{
+    background-color:rgb(246, 248, 250) ;
+    cursor: pointer;
+}
