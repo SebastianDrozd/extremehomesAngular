@@ -8,7 +8,7 @@
       <!-- progressbar -->
       <ul id="progressbar">
         <li class="active">Customer Info</li>  
-        <li>Work Summary</li> 
+        <li [ngClass]="{'active' : estimateService.getCount() > 0}">Work Summary</li> 
         <li>Additional Info</li>
       </ul>
       <!-- fieldsets -->

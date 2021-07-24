@@ -11,6 +11,7 @@ import { WorkComponent } from './createestimate/work/work.component';
 import { AdditionalinfoComponent } from './createestimate/additionalinfo/additionalinfo.component';
 import { PicturesComponent } from './createestimate/pictures/pictures.component';
 import { SummaryComponent } from './createestimate/summary/summary.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,7 +28,9 @@ import { SummaryComponent } from './createestimate/summary/summary.component';
   ],
   imports: [
     CommonModule,
-    EstimatesRoutingModule
+    EstimatesRoutingModule,
+    FormsModule,
+
   ]
 })
 export class EstimatesModule { }
