@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-work',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class WorkComponent implements OnInit {
    tasks = []
    count = 1;
-  constructor() { }
+  constructor(private router : Router, private route : ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +22,9 @@ export class WorkComponent implements OnInit {
   
   deleteTask(id){
     this.tasks = this.tasks.filter(x => x.id !== id)
+  }
+  continue(){
+    this.router.navigate(['../additional-info'], {relativeTo: this.route})
   }
 
 }

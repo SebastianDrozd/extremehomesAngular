@@ -2,7 +2,7 @@
     <form class="row g-3 customer" #userForm="ngForm" >
         <div class="col-md-3" style="padding-bottom: 3em;">
           <label for="validationCustom01" class="form-label">Work Type</label>
-          <input ngModel name="workType" type="text" class="form-control" id="validationCustom01" value="" required>
+          <input ngModel name="workType" type="text" class="form-control fade-in" id="validationCustom01" value="" required>
           
         </div>
         <div class="col-md-4">
@@ -77,7 +77,7 @@
         <div class="col-12">
           <br>
           <br>
-          <button [disabled] ="!userForm.valid" style="margin-left: 3px;background-color: #5cb85c;" class="btn  float-right" type="submit"><a style="text-decoration: none;color: white;"routerLink="additional-info">Continue</a>  </button>
+          <button [disabled] ="!userForm.valid" style="margin-left: 3px;background-color: #5cb85c;color: white;" class="btn  float-right" type="submit" (click)="continue()">Continue  </button>
           <button style="background-color: white;color: #5cb85c; min-width: 5em; border: 1px solid rgb(230, 233, 240);" class="btn  float-right" type="submit"><a style="text-decoration: none;color : #5cb85c"routerLink="../">Back</a>  </button>
         </div>
       </form>

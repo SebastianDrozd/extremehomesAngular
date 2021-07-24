@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'createEstimate', component:CreateestimateComponent, children:[
     {path: '' , component: CreatecustomerComponent},
     {path: 'work', component : WorkComponent },
-    {path: 'work/additional-info', component:AdditionalinfoComponent},
+    {path: 'additional-info', component:AdditionalinfoComponent},
     {path: 'work/additional-info/pictures', component:PicturesComponent},
     {path: 'work/additional-info/pictures/summary', component: SummaryComponent}
   ] }
