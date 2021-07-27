@@ -1,31 +1,110 @@
-
-<div class="container"><ul class="list-group">
-    <h4 class="text-center">Review estimate</h4>
+<div class="container">
+  <h2><small class="text-muted">Confirm Estimate</small></h2>
+    <p>Please review the information below to ensure that the correct subject and visit are selected.</p>
     <br>
-    <li style="background: rgb(235, 241, 243); color: black;" class="list-group-item active" aria-current="true">Estimate Information</li>
-    <li class="list-group-item">First Name: </li>
-    <li class="list-group-item">Last Name: </li>
-    <li class="list-group-item">Address: </li>
-    <li class="list-group-item">City: </li>
-    <li class="list-group-item">Zipcode: </li>
-    <li class="list-group-item">Phone: </li>
-    <li class="list-group-item">Email: </li>
-    <li class="list-group-item">Customer Notes: </li>
-  </ul>
-  <hr>
-  <ul class="list-group">
-    <li style="background: rgb(235, 241, 243); color: black;" class="list-group-item active" aria-current="true">Work Information </li>
-    <li class="list-group-item">Work Type: </li>
-    <li class="list-group-item">Difficulty: </li>
-    <li class="list-group-item">Condition: </li>
-    <li class="list-group-item">Description: </li>
-    <li class="list-group-item">Tasks: </li>
-    <li class="list-group-item">Materials: </li>
-    <li class="list-group-item">Pictures: </li>
-  </ul>
+  <div id="div_one">
+    
+    <p><b>Customer</b> </p>
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+    <p>First Name</p>
+    <h6>{{customer.firstName}}</h6>
+  </div>
+  <div class="col-md-4">
+    <p>First Name</p>
+    <h6>{{customer.lastName}}</h6>
+  </div>
+  </div>
   <br>
+  <div class="row">
+  <div  class="col-md-8">
+    <p>Address</p>
+    <h6>{{customer.address.streetAddress}}</h6>
+  </div>
+  <div  class="col-md-3">
+    <p>City</p>
+    <h6>{{customer.address.city}}</h6>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <p>State</p>
+    <h6>{{customer.address.state}}</h6>
+  </div>
+  <div  class="col-md-3">
+    <p>Zipcode</p>
+    <h6>{{customer.address.zipcode}}</h6>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-md-8">
+    <p>Phone</p>
+    <h6>{{customer.phone}}</h6>
+  </div>
+  <div class="col-md-3">
+    <p>Email</p>
+    <h6>{{customer.email}}</h6>
+  </div>
+</div>
+  
+    <br>
+  
+  </div>
+  <div id="div_two">
+     
+    <p><b>Work</b> </p>
+    <br>
+    <div class="row">
+      <div class="col-md-6">
+    <p>Type</p>
+    <h6 >{{work.workType}}</h6>
+  </div>
  
-  <button class="btn btn-outline-success float-right">Save</button>
+  </div>
   <br>
-  <br>
+  <div class="row">
+    <div  class="col-md-2">
+      <p>Condition</p>
+      <h6>5</h6>
+    </div>
+    <div  class="col-md-2">
+      <p>Difficulty</p>
+      <h6>3</h6>
+    </div>
+    <div  class="col-md-2">
+      <p>Hours</p>
+      <h6>40+</h6>
+    </div>
+  
+  
+</div>
+<br>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-12">
+    <p>Description</p>
+    <h6>{{work.workDescription}}</h6>
+  </div>
+</div>
+<br>
+<br>
+
+  
+    <br>
+  </div>
+</div>
+<br>
+<br>
+<button style="margin-left: 3px;background-color: #5cb85c; border: none;" class="btn btn-primary float-right" (click)="saveEstimate()" type="submit">Continue </button>
+<br>
+<div style="margin-top: 10em !important;">
+<div class="">
+  <h3 class="title" ><small class="text-muted">
+    </small></h3>
+    <br>
+</div>
 </div>

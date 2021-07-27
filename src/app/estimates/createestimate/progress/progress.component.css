@@ -8,20 +8,12 @@
   overflow: hidden;
 }
 
-.poop {
-  -webkit-animation:bounce 1s infinite;
-}
-@-webkit-keyframes bounce {
-  0%       { bottom:5px; }
-  25%, 75% { bottom:15px; }
-  50%      { bottom:20px; }
-  100%     {bottom:0;}
-}
 .multi_step_form #msform {
   text-align: center;
   position: relative;
-  padding-top: 20px;
-  max-width: 90%;
+  padding-top: 10px;
+  max-width: 80%;
+  max-height: 50% auto;
   margin: 0 auto;
   background: #ffffff;
   z-index: 1;
@@ -29,7 +21,7 @@
 
 .multi_step_form #msform .tittle {
   text-align: center;
-  padding-bottom: 55px;
+  padding-bottom: 40px;
 }
 
 .multi_step_form #msform .tittle h2 {
@@ -45,7 +37,7 @@
 
 .multi_step_form #msform fieldset {
   border: 0;
-  padding: 20px 105px 0;
+  padding: 20px 30px 0;
   position: relative;
   width: 100%;
   left: 0;
@@ -321,7 +313,7 @@
 }
 
 .multi_step_form #msform #progressbar {
-  margin-bottom: 30px;
+  margin-bottom: 5px;
   overflow: hidden;
 }
 
@@ -329,7 +321,7 @@
   list-style-type: none;
   color: #99a2a8;
   font-size: 9px;
-  width: calc(100% / 3);
+  width: calc(100% / 5);
   float: left;
   position: relative;
   font: 500 13px/1 "Roboto", sans-serif;
@@ -371,7 +363,7 @@
 }
 
 .multi_step_form #msform #progressbar li.active {
-  color: #5cb85c;
+  font-size: 14px;
 }
 
 .multi_step_form #msform #progressbar li.active:before, .multi_step_form #msform #progressbar li.active:after {

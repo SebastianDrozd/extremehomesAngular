@@ -14,8 +14,8 @@ const routes: Routes = [
     {path: '' , component: CreatecustomerComponent},
     {path: 'work', component : WorkComponent },
     {path: 'additional-info', component:AdditionalinfoComponent},
-    {path: 'work/additional-info/pictures', component:PicturesComponent},
-    {path: 'work/additional-info/pictures/summary', component: SummaryComponent}
+    {path: 'pictures', component:PicturesComponent},
+    {path: 'summary', component: SummaryComponent}
   ] }
 ];
 

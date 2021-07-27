@@ -1,53 +1,77 @@
+<br>
+<br>
 <div class="container">
+  {{customer | json}}
     <form class="row g-3 customer" #userForm="ngForm" >
-        <div class="col-md-3" style="padding-bottom: 3em;">
-          <label for="validationCustom01" class="form-label">Work Type</label>
-          <input ngModel name="workType" type="text" class="form-control fade-in" id="validationCustom01" value="" required>
+        <div class="col-md-6">
+      <label for="validationCustom01" class="form-label">Work Type</label>
+      <input ngModel name="workType" type="text" class="form-control input-sm" id="validationCustom01" value="" required>
+      
+    </div>
+        <div class="col-md-2">
           
+          <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Difficulty</label>
+          <select  class="form-control">
+            <option value="AL">1</option>
+            <option value="AL">2</option>
+          </select>
         </div>
-        <div class="col-md-4">
-          <label for="validationCustom02" class="form-label">Difficulty</label>
-          <input type="range" class="form-control" id="validationCustom02" value="Otto" >
+        <div class="col-md-2">
+          <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Condition</label>
+          <select class="form-control">
+            <option value="AL">1</option>
+            <option value="AL">2</option>
+          </select>
         </div>
-        <div class="col-md-4">
-          <label for="validationCustom02" class="form-label">Condition</label>
-          <input type="range" class="form-control" id="validationCustom02" value="Otto">
+        <div class="col-md-2">
+          <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Hours Anticipated</label>
+          <select class="form-control">
+            <option value="AL">40+</option>
+            <option value="AL">2</option>
+          </select>
         </div>
         
         
-        <div style="padding-bottom: 2em;" class="col-md-12">
+        <div style="padding-bottom: 4em;" class="col-md-12">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+          <textarea ngModel name="workDescription" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
         </div>
 
         
         <br>
-        <br>
-        <div class="container">
-          <br>
-          
-          <h2 style="margin-left: 15px;"><small class="text-muted">Add Task</small></h2>
-          <div style="padding-bottom: 1em;" class="input-group col-md-3">
-            <input ngModel name="taskName" type="text" class="form-control" placeholder="Task Name" aria-label="Recipient's username" aria-describedby="button-addon2">
-            
-          </div>
-          <div class="input-group col-md-6">
-            <input ngModel name="taskDescription" type="text" class="form-control" placeholder="Task Description" aria-label="Recipient's username" aria-describedby="button-addon2"><button class="btn btn-outline-secondary" type="button" id="button-addon2" (click)="addTask({id : count, taskName : userForm.value.taskName, taskDescription: userForm.value.taskDescription})">Button</button>
-            
+        <div *ngIf="!addTasks" class="container" style="display: flex;">
+          <h4 style=""><small class="text-muted">Would you like to add tasks?</small></h4><button (click)= "setAddTasks()" style="margin-left: 2em;width: 5em;color: cornflowerblue; border: 1px solid rgb(224, 230, 241);" class="btn">yes</button>
+         
+        </div>
+        <div *ngIf="addTasks" class="container">
+          <h2 style="margin-left: 10px; padding-bottom: 1em;"><small class="text-muted">Add Task</small></h2>
+          <div class="row">
+            <div style="" class="input-group col-md-2">
+              <input  ngModel name="taskName" type="text" class="form-control" placeholder="Task Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+              
+            </div>
+            <div class="input-group col-md-3">
+              <input ngModel name="taskDescription" sty type="text" class="form-control" placeholder="Task Description" aria-label="Recipient's username" aria-describedby="button-addon2">
+              
+            </div>
+
+            <div class="input-group col-md-4">
+             <button class="btn btn" style="width: 7em !important; border: 1px solid cornflowerblue !important; color: cornflowerblue;" (click)="addTask({id: count, taskName: userForm.value.taskName, taskDescription : userForm.value.taskDescription})">Add</button>
+             <button (click)= "setAddTasksOff()" style="margin-left: 2em;width: 7em;color: white; background-color: cornflowerblue;" class="btn">Hide Tasks</button> 
+            </div>
           </div>
         
-          <br>
           <h4 class="title" ><small class="text-muted">
               </small></h4>
               <br>
               <br>
       <table class="table tablecust">
-          <thead class="thead-dark">
+          <thead style="background-color: cornflowerblue" class="thead">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Task</th>
-              <th scope="col">Description</th>
-              <th scope="col"></th>
+              <th  style="color: white;" scope="col">#</th>
+              <th  style="color: white;"scope="col">Task</th>
+              <th  style="color: white;"scope="col">Description</th>
+              <th  style="color: white;"scope="col"></th>
          
             </tr>
           </thead>
@@ -64,6 +88,7 @@
         </table>
         
       </div>
+      <ng-template #else ></ng-template>
       
       
      
@@ -77,9 +102,13 @@
         <div class="col-12">
           <br>
           <br>
-          <button [disabled] ="!userForm.valid" style="margin-left: 3px;background-color: #5cb85c;color: white;" class="btn  float-right" type="submit" (click)="continue()">Continue  </button>
+          {{userForm.value | json}}
+          <button  style="margin-left: 3px;background-color: #5cb85c;color: white;" class="btn  float-right" type="submit" (click)="continue(userForm.value)">Continue  </button>
           <button style="background-color: white;color: #5cb85c; min-width: 5em; border: 1px solid rgb(230, 233, 240);" class="btn  float-right" type="submit"><a style="text-decoration: none;color : #5cb85c"routerLink="../">Back</a>  </button>
         </div>
       </form>
     </div>
+    <br>
+    <br>
+    <br>
     

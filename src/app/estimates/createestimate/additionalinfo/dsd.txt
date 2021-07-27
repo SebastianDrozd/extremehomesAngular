@@ -1,0 +1,26 @@
+ <div *ngIf="materials.length > 0">
+ <table class="table" style="margin-top: 4em;">
+   
+    <thead style="background-color: cornflowerblue; color: white;" class="thead">
+      <tr>
+        <th scope="col">Material</th>
+        <th scope="col">Description</th>
+        <th scope="col">Cost</th>
+        <th scope="col"></th>
+   
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let material of materials">
+        <th scope="row">{{material.materialName}}</th>
+        <td>{{material.materialDescription}}</td>
+        <td>{{material.materialCost}}</td>
+        <td><button class="btn btn-outline-danger">Delete</button></td>
+      
+       
+      </tr>
+      
+     
+    </tbody>
+  </table>
+  </div>

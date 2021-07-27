@@ -1,0 +1,26 @@
+<div class="container">
+    <main class="content">
+      <h1 class="">My Photos</h1>
+      <hr>
+  
+      <ul class="gallery" *ngFor ="let image of images">
+  
+        <li>
+          <div class="imgwrap">
+            <a href="#">
+                <img style=""  src="{{image}}" alt="" height="150" width="100">
+              <span class="imgmask"></span>
+            </a>
+          </div>
+          <a href="#">
+            <h2>Awesome</h2>
+          </a>
+        </li>
+      </ul>
+    
+  
+      <footer>
+       
+      </footer>
+    </main>
+  </div>

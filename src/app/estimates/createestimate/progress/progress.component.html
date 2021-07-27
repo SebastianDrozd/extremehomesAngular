@@ -9,7 +9,9 @@
       <ul id="progressbar">
         <li class="active poop">Customer Info</li>  
         <li [ngClass]="{'active' : estimateService.getCount() > 0}">Work Summary</li> 
-        <li>Additional Info</li>
+        <li [ngClass]="{'active' : estimateService.getCount() > 1}">Materials</li>
+        <li [ngClass]="{'active' : estimateService.getCount() > 2}">Pictures</li>
+        <li [ngClass]="{'active' : estimateService.getCount() > 3}">Summary</li>
       </ul>
       <!-- fieldsets -->
      

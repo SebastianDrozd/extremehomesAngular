@@ -1,5 +1,6 @@
 .questionmaterials{
-    margin-top:15%;
+    margin-top:17%;
+    font-size: 2em;
 }
 .buttonsquestions{
     margin-top: 1em !important;
@@ -7,4 +8,9 @@
 .buttonsquestions button{
     margin-top: 1em !important;
     width: 5em;
+}
+.inputmaterials{
+    border-bottom: 1px solid rgb(201, 213, 236) !important;
+    margin-right: 2em !important;
+    
 }

@@ -1,0 +1,78 @@
+@import url(https://db.onlinewebfonts.com/c/c16b7f3c0832bc60d12dfeae0073d6d6?family=AktivGroteskW01-Medium);
+
+#div_one{
+    height:100%; /*50 for other way */
+    width:50%; /*100 for other way */
+    float:left; /*or display:inline-block; */
+    padding: 2em;
+    border: 1px solid rgb(231, 236, 247);
+    max-height: 30em;
+    
+  }
+  
+  #div_two{
+    height:100%; /*50 for other way */
+    width:50%; /*100 for other way */
+    float:left; /*or display:inline-block;*/
+    border: 1px solid rgb(231, 236, 247);
+    padding: 2em;
+    max-height: 30em;
+   
+
+  }
+
+  .container{
+      margin-top: 5em;
+  }
+  h1, h2, h3, h4, h5, h6{
+    color: #4A4A4A;
+    font-family: "AktivGroteskW01-Medium";
+  }
+  body{
+    color: #4A4A4A !important;
+    background: #ECEFF1;
+    font-family: 'Open Sans', sans-serif;
+  }
+  table{
+    width:100%;
+    table-layout: fixed;
+  }
+  .tbl-header{
+    background-color: rgba(255,255,255,0.3);
+   }
+  .tbl-content{
+    height:300px;
+    overflow-x:auto;
+    margin-top: 0px;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+  th{
+    padding: 20px 15px;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    color: rgb(10, 63, 107);;
+    text-transform: uppercase;
+  }
+  td{
+    padding: 15px;
+    text-align: left;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 12px;
+    color: rgb(50, 119, 175);
+    border-bottom: solid 1px rgba(255,255,255,0.1);
+  }
+  
+  
+  /* demo styles */
+  
+  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+  body{
+    background: -webkit-linear-gradient(left, #25c481, #25b7c4);
+    background: linear-gradient(to right, #25c481, #25b7c4);
+    font-family: 'Roboto', sans-serif;
+  }
+  section{
+   
+  }

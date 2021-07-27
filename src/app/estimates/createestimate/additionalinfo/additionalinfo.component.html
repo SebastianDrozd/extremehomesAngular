@@ -1,81 +1,82 @@
 <div class="container">
-   <div *ngIf="addTable">
    
-   </div>
-<div *ngIf="wantsMaterials; else elseBlock">
+<div class="container" *ngIf="wantsMaterials; else elseBlock">
   <br>
   <br>
-  <div class="row">
-    <h2 style="margin-left: 15px;"><small class="text-muted">Add Material</small></h2>
-    <div style="" class="input-group col-md-2">
-      <input type="text" class="form-control" placeholder="Material Name" aria-label="Recipient's username" aria-describedby="button-addon2">
+  <br>
+  <br>
+  <h3 class="text-center"><small class="text-muted ">Add Materials</small></h3>
+   <form class="row g-3 customer" #userForm="ngForm" >
+  <div style="display: flex; margin: auto;
+  width: 75%; margin-top: 2%; " class="">
+   
+
+    <div style="padding-top: 5px;" class="input-group col-md-3">
+      <input ngModel style="border: none;" name="materialName" type="text" class="inputmaterials" placeholder=" Name" aria-label="Recipient's username" aria-describedby="button-addon2">
       
     </div>
-    <div class="input-group col-md-4">
-      <input sty type="text" class="form-control" placeholder="Material Description" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div style="padding-top: 5px;" class="input-group col-md-3">
+      <input ngModel style="border: none;" name="materialDescription" type="text" class="inputmaterials" placeholder="Material Description" aria-label="Recipient's username" aria-describedby="button-addon2">
       
     </div>
-    <div class="input-group col-md-2">
-      <input sty type="text" class="form-control" placeholder="Material Cost" aria-label="Recipient's username" aria-describedby="button-addon2">
+    <div style="padding-top: 5px;" class="input-group col-md-3">
+      <input ngModel style="border: none;" name="materialCost" type="text" class="inputmaterials" placeholder=" Cost" aria-label="Recipient's username" aria-describedby="button-addon2">
       
     </div>
-    <div class="input-group col-md-2">
-     <button class="btn btn-outline-success">Add</button>
-      
+    <div style="padding-top: 5px;" class="input-group col-md-3">
+     <button style="max-height: 3em;"class="btn btn-outline-success" (click)="addMaterial({id : count, materialName : userForm.value.materialName, materialDescription : userForm.value.materialDescription, materialCost : userForm.value.materialCost})">Add</button>
+     <button style="max-height: 3em; margin-left: 5px;"class="btn btn-outline-primary" (click)="overViewOn()">Overview</button>
     </div>
   </div>
-  <table class="table" style="margin-top: 2em;">
-   
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">Task</th>
-        <th scope="col">Description</th>
-        <th scope="col">Priority</th>
-        <th scope="col"></th>
-   
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>2</td>
-        <td><button class="btn btn-outline-danger">Delete</button>></td>
+</form>
+  <br>
+  <br>
+  <div *ngIf="materials.length > 0">
+    <table class="table" style="margin-top: 4em;">
       
-       
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>4</td>
-        <td><button class="btn btn-outline-danger">Delete</button></td>
-    
+       <thead style="background-color: cornflowerblue; color: white;" class="thead">
+         <tr>
+           <th scope="col">Material</th>
+           <th scope="col">Description</th>
+           <th scope="col">Cost</th>
+           <th scope="col"></th>
+      
+         </tr>
+       </thead>
+       <tbody>
+         <tr *ngFor="let material of materials">
+           <th scope="row">{{material.materialName}}</th>
+           <td>{{material.materialDescription}}</td>
+           <td>{{material.materialCost}}</td>
+           <td><button class="btn btn-outline-danger">Delete</button></td>
+         
+          
+         </tr>
+         
         
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>1</td>
-        <td><button class="btn btn-outline-danger">Delete</button></td>
-  
-       
-      </tr>
-    </tbody>
-  </table>
-    <h1 class="display-6 text-center questionmaterials2" style="margin-top:2em ;"><small class="text-muted">Add a general description for your materials</small></h1>
+       </tbody>
+     </table>
+     </div>
+  <br>
+  <br>
+  <br>
+ 
+  <div *ngIf="addOverView">
+    <h1 class="display-6 text-center questionmaterials2" ><small style="font-size: 22px;" class="text-muted"> Materials Overview</small></h1>
     <br>
     <div style="padding-bottom: 2em;" class="col-md-12">
-        <textarea style="border-radius: 40px;" rows="10" class="form-control" id="exampleFormControlTextarea1" ></textarea>
+        <textarea [(ngModel)]="overView" style="border-radius: 40px;" rows="6" class="form-control" id="exampleFormControlTextarea1" ></textarea>
       </div>
+    </div>
       <div class="col-12">
             
-        <button style="margin-left: 3px;background-color: #5cb85c;" class="btn btn-primary float-right" type="submit"><a routerLink="pictures">Continue</a> </button>
-        <button style="background-color: white;color: black; min-width: 5em;" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;"routerLink="../">Back</a>  </button>
+        <button style="margin-left: 3px;background-color: #5cb85c; border: none;" class="btn btn-primary float-right" (click)="continue(userForm.value)" type="submit">Continue </button>
+        <button style="background-color: white;color: black; min-width: 5em; border:1px solid rgb(204, 214, 231);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;color: #5cb85c;"routerLink="../">Back</a>  </button>
       </div>
 </div>
-<ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials"><small class="text-muted">Would you like to add materials to this estimate?</small></h1>
+<ng-template #elseBlock> <h1 class="display-7 text-center questionmaterials"><small class="text-muted" style="font-size: 22px;">Would you like to add materials to this estimate?</small></h1>
     <div class="text-center buttonsquestions">
-        <button style="margin-right: 2em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="border: 1px solid black"class="btn">No</button>
+        <button style="margin-right: 1em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="width: 5em !important; border: 1px solid rgb(203, 216, 240) !important; color: cornflowerblue;"class="btn">No</button>
     </div></ng-template>
 </div>
 <br>
