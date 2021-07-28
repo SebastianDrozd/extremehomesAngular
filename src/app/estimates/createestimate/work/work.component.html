@@ -1,7 +1,6 @@
 <br>
 <br>
 <div class="container">
-  {{customer | json}}
     <form class="row g-3 customer" #userForm="ngForm" >
         <div class="col-md-6">
       <label for="validationCustom01" class="form-label">Work Type</label>
@@ -11,23 +10,21 @@
         <div class="col-md-2">
           
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Difficulty</label>
-          <select  class="form-control">
-            <option value="AL">1</option>
-            <option value="AL">2</option>
+          <select (change) = "selectDifficulty($event)" class="form-control">
+            <option *ngFor="let o of optionsDifficulty" >{{o.name}}</option>
+            
           </select>
         </div>
         <div class="col-md-2">
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Condition</label>
-          <select class="form-control">
-            <option value="AL">1</option>
-            <option value="AL">2</option>
+          <select (change)="selectCondition($event)" class="form-control">
+            <option *ngFor="let o of optionsCondition" >{{o.name}}</option>
           </select>
         </div>
         <div class="col-md-2">
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Hours Anticipated</label>
-          <select class="form-control">
-            <option value="AL">40+</option>
-            <option value="AL">2</option>
+          <select (change)="selectHours($event)" class="form-control">
+            <option *ngFor="let o of optionsHours">{{o.name}}</option>
           </select>
         </div>
         
@@ -56,7 +53,7 @@
             </div>
 
             <div class="input-group col-md-4">
-             <button class="btn btn" style="width: 7em !important; border: 1px solid cornflowerblue !important; color: cornflowerblue;" (click)="addTask({id: count, taskName: userForm.value.taskName, taskDescription : userForm.value.taskDescription})">Add</button>
+             <button class="btn btn" style="width: 7em !important; border: 1px solid cornflowerblue !important; color: cornflowerblue;" (click)="addTask({taskName: userForm.value.taskName, description : userForm.value.taskDescription})">Add</button>
              <button (click)= "setAddTasksOff()" style="margin-left: 2em;width: 7em;color: white; background-color: cornflowerblue;" class="btn">Hide Tasks</button> 
             </div>
           </div>
@@ -79,7 +76,7 @@
             <tr *ngFor = "let task of tasks">
               <th scope="row">{{task.id}}</th>
               <td>{{task.taskName}}</td>
-              <td>{{task.taskDescription}}</td>
+              <td>{{task.description}}</td>
               <td><button class="btn btn-outline-danger" (click) = "deleteTask(task.id)">Delete</button></td>
             </tr>
            
@@ -88,21 +85,10 @@
         </table>
         
       </div>
-      <ng-template #else ></ng-template>
-      
-      
-     
-       
-       
-       
-        
-       
-       
-        
+      <ng-template #else ></ng-template> 
         <div class="col-12">
           <br>
           <br>
-          {{userForm.value | json}}
           <button  style="margin-left: 3px;background-color: #5cb85c;color: white;" class="btn  float-right" type="submit" (click)="continue(userForm.value)">Continue  </button>
           <button style="background-color: white;color: #5cb85c; min-width: 5em; border: 1px solid rgb(230, 233, 240);" class="btn  float-right" type="submit"><a style="text-decoration: none;color : #5cb85c"routerLink="../">Back</a>  </button>
         </div>

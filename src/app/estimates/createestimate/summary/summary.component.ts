@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EstimatesService } from '../../services/estimates.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -11,19 +11,41 @@ export class SummaryComponent implements OnInit {
   constructor(private estimateService : EstimatesService) { }
   customer;
   work;
-  pictures;
+  pictures=[]
   url;
   path = ""
+  materialss;
+  responseUrl = ""
   ngOnInit(): void {
-   this.customer= this.estimateService.getCustomer()
+   this.customer= JSON.parse(localStorage.getItem("customer"))
+   this.estimateService.setCustomer(this.customer)
+   console.log(this.customer)
    console.log("reader exectuing...")
-   this.url = this.estimateService.getPictures()
-   this.work = this.estimateService.getWork();
-   console.log(this.url)
+   //this.url = this.estimateService.getPictures()
+   this.work = JSON.parse(localStorage.getItem("work"))
+   this.estimateService.setWork(this.work)
+   console.log("work",this.work)
+   this.pictures =  JSON.parse(localStorage.getItem("pictures"))
+   this.estimateService.setPictures(this.pictures)
+   console.log("Summary service",this.pictures)
+   this.materialss = JSON.parse(localStorage.getItem("materials"))
+   this.estimateService.setMaterials(this.materialss)
+   console.log("summary Service materials",this.materialss)
+   console.log(localStorage)
+  
   }
 
   saveEstimate(){
-    this.estimateService.saveEstimate().subscribe(data => console.log(data))
+    this.estimateService.saveEstimate().subscribe(data => {Swal.fire({
+      title: 'Success',
+      text: 'Estimate Saved!',
+      icon: 'success',
+      confirmButtonText: 'Cool'
+    })
+    //@ts-ignore
+    this.responseUrl= data.id
+    console.log("id",this.responseUrl)
+  })
   }
 
 

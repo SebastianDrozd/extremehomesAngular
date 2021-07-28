@@ -12,6 +12,30 @@ export class WorkComponent implements OnInit {
    count = 1;
    addTasks = false;
    customer = {}
+  selectedDifficulty = ""
+  selectedCondition = ""
+  selectedHours = ""
+   optionsDifficulty= [
+     {name : "1",value: "1"},
+     {name : "2",value: "2"},
+     {name : "3",value: "3"},
+     {name : "4",value: "4"},
+     {name : "5",value: "5"},
+   ]
+   optionsCondition= [
+    {name : "Excellent",value: "Excellent"},
+    {name : "Good",value: "Good"},
+    {name : "Moderate",value: "Moderate"},
+    {name : "Bad",value: "Bad"},
+    {name : "Worst",value: "Worst"},
+  ]
+  optionsHours= [
+    {name : "40+",value: "40+"},
+    {name : "20-30",value: "20-30"},
+    {name : "10-20",value: "10-20"},
+    {name : "0-10",value: "0-10"}
+   
+  ]
   constructor(private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
 
   ngOnInit(): void {
@@ -35,8 +59,22 @@ export class WorkComponent implements OnInit {
   }
   continue(form){
     this.estimateService.setCount(this.estimateService.getCount()+1)
-    this.estimateService.setWork({workType: form.workType, workDescription : form.workDescription })
+    this.estimateService.setWork({workType: form.workType, difficulty: this.selectedDifficulty,condition: this.selectedCondition, hours: this.selectedHours , workDescription : form.workDescription,tasks: this.tasks })
+    localStorage.setItem("work",JSON.stringify({workType: form.workType, difficulty: this.selectedDifficulty,condition: this.selectedCondition, hours: this.selectedHours , workDescription : form.workDescription,tasks: this.tasks }))
     this.router.navigate(['../additional-info'], {relativeTo: this.route})
+  }
+
+  selectDifficulty($event){
+    this.selectedDifficulty =  $event.target.options[$event.target.options.selectedIndex].text
+   console.log("difficulty", this.selectedDifficulty)
+  }
+  selectCondition($event){
+    this.selectedCondition =  $event.target.options[$event.target.options.selectedIndex].text
+   console.log("difficulty", this.selectedDifficulty)
+  }
+  selectHours($event){
+    this.selectedHours =  $event.target.options[$event.target.options.selectedIndex].text
+   console.log("difficulty", this.selectedDifficulty)
   }
 
 

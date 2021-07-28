@@ -24,3 +24,58 @@
     </tbody>
   </table>
   </div>
+
+
+
+
+  <div class="container">
+
+  
+
+  <div class="">
+    <p><b>Materials</b> </p>
+    <br>
+    <div class="tableback">
+      <section>
+        <!--for demo wrap-->
+        <div class="tbl-header">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Material Name</th>
+                <th>Material Description</th>
+                <th>Material Cost</th>
+                <th>Action</th>
+               
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr *ngFor="let material of materialss.materials">
+                <td>{{material.materialName}}</td>
+                <td>{{material.materialDescription}} </td>
+                <td>{{material.materialCost}}</td>
+                <td><button style="border:1px solid cornflowerblue;" class="btn btn">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    
+      </section>
+      
+    </div>
+  </div>
+
+  <div class="tasks2">
+    <p><b>Pictures</b> </p>
+   
+  </div>
+
+
+
+
+  <button style="margin-left: 3px;background-color: #5cb85c; border: none;" class="btn btn-primary float-right" (click)="saveEstimate()" type="submit">Continue </button>
+</div>

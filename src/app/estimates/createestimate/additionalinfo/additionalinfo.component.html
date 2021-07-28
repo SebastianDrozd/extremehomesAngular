@@ -5,6 +5,8 @@
   <br>
   <br>
   <br>
+  <br>
+  <br>
   <h3 class="text-center"><small class="text-muted ">Add Materials</small></h3>
    <form class="row g-3 customer" #userForm="ngForm" >
   <div style="display: flex; margin: auto;
@@ -24,7 +26,7 @@
       
     </div>
     <div style="padding-top: 5px;" class="input-group col-md-3">
-     <button style="max-height: 3em;"class="btn btn-outline-success" (click)="addMaterial({id : count, materialName : userForm.value.materialName, materialDescription : userForm.value.materialDescription, materialCost : userForm.value.materialCost})">Add</button>
+     <button style="max-height: 3em;"class="btn btn-outline-success" (click)="addMaterial({ materialName : userForm.value.materialName, materialDescription : userForm.value.materialDescription, materialCost : userForm.value.materialCost})">Add</button>
      <button style="max-height: 3em; margin-left: 5px;"class="btn btn-outline-primary" (click)="overViewOn()">Overview</button>
     </div>
   </div>
@@ -82,3 +84,4 @@
 <br>
 <br>
 <br>
+

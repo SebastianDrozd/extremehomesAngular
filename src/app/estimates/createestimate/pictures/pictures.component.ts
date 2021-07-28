@@ -46,13 +46,14 @@ export class PicturesComponent implements OnInit {
 
   continue(){
     this.estimateService.setCount(this.estimateService.getCount()+1)
-    this.estimateService.setPictures(file.getImage())
+    this.estimateService.setPictures(this.pictures)
+    localStorage.setItem("pictures", JSON.stringify(this.pictures))
     this.router.navigate(['../summary'], {relativeTo: this.route})
   }
 
   uploadNewImage(){
     this.uploaded = false;
-    this.pictures.push(file.getImage())
+    this.pictures.push({imageBase: file.getImage()})
     this.wantsMorePictures= true;
     console.log(this.pictures)
     console.log(this.pictures.length)

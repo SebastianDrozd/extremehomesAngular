@@ -4,58 +4,67 @@
     <br>
   <div id="div_one">
     
-    <p><b>Customer</b> </p>
+    <p><b>Customer</b>  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+    </svg></p>
     <br>
     <div class="row">
-      <div class="col-md-8">
-    <p>First Name</p>
-    <h6>{{customer.firstName}}</h6>
+      <div class="col-md-4">
+    <p>Name</p>
+    <h6>{{customer.firstName}} {{customer.lastName}} </h6>
   </div>
-  <div class="col-md-4">
-    <p>First Name</p>
-    <h6>{{customer.lastName}}</h6>
-  </div>
-  </div>
-  <br>
-  <div class="row">
-  <div  class="col-md-8">
+  <div  class="col-md-2">
     <p>Address</p>
     <h6>{{customer.address.streetAddress}}</h6>
   </div>
-  <div  class="col-md-3">
+  <div  class="col-md-2">
     <p>City</p>
     <h6>{{customer.address.city}}</h6>
   </div>
-</div>
-<br>
-<div class="row">
-  <div class="col-md-8">
+  <div class="col-md-2">
     <p>State</p>
     <h6>{{customer.address.state}}</h6>
   </div>
-  <div  class="col-md-3">
+  <div  class="col-md-2">
     <p>Zipcode</p>
-    <h6>{{customer.address.zipcode}}</h6>
+    <h6>60098</h6>
+  </div>
+  </div>
+  <br>
+  <br>
+<div class="row">
+  <div class="col-md-4">
+    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+      <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+      <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+    </svg></p>
+    <h6>{{customer.phone}}</h6>
+  </div>
+  <div class="col-md-4">
+    <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+    </svg></p>
+    <h6 style="">{{customer.email}}</h6>
   </div>
 </div>
 <br>
+<br>
 <div class="row">
-  <div class="col-md-8">
-    <p>Phone</p>
-    <h6>{{customer.phone}}</h6>
-  </div>
-  <div class="col-md-3">
-    <p>Email</p>
-    <h6>{{customer.email}}</h6>
+  <div class="col-md-12">
+    <p>Notes</p>
+    <p>{{customer.notes}}</p>
+    <br>
+    <button style="border: 1px solid rgb(191, 212, 233); width: 7em" class="btn float-right">Edit</button>
   </div>
 </div>
-  
-    <br>
-  
   </div>
+ <br> 
   <div id="div_two">
      
-    <p><b>Work</b> </p>
+    <p><b>Work</b><svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
+      <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V5.5zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+      <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+    </svg> </p>
     <br>
     <div class="row">
       <div class="col-md-6">
@@ -68,22 +77,21 @@
   <div class="row">
     <div  class="col-md-2">
       <p>Condition</p>
-      <h6>5</h6>
+      <h6>{{work.condition}}</h6>
     </div>
     <div  class="col-md-2">
       <p>Difficulty</p>
-      <h6>3</h6>
+      <h6>{{work.condition}}</h6>
     </div>
     <div  class="col-md-2">
       <p>Hours</p>
-      <h6>40+</h6>
+      <h6>{{work.hours}}</h6>
     </div>
   
   
 </div>
 <br>
-<br>
-<br>
+
 <div class="row">
   <div class="col-md-12">
     <p>Description</p>
@@ -96,15 +104,110 @@
   
     <br>
   </div>
+  <div id="div_one2" style="margin-top: 3em; border-radius: 30px; max-height: 31em; width: 45%;"><div class="tasks">
+    <p><b>Tasks</b> <svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
+      <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
+      <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
+    </svg> </p>
+    <div style="margin-top: 2em;" class="tableback">
+      <section>
+        <!--for demo wrap-->
+        <div class="tbl-header">
+          <table  cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>Task Name</th>
+                <th> Description</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody >
+              <tr *ngFor="let task of work.tasks">
+                <td>{{task.taskName}}</td>
+                <td>{{task.description}} </td>
+                <td><button style="border:1px solid cornflowerblue;" class="btn btn">Edit</button></td>
+                
+              </tr>
+              
+              
+              
+             
+              
+            </tbody>
+          </table>
+        </div>
+       
+      </section>
+      
+    </div>
+  </div></div>
 </div>
 <br>
 <br>
-<button style="margin-left: 3px;background-color: #5cb85c; border: none;" class="btn btn-primary float-right" (click)="saveEstimate()" type="submit">Continue </button>
+
 <br>
-<div style="margin-top: 10em !important;">
-<div class="">
-  <h3 class="title" ><small class="text-muted">
-    </small></h3>
-    <br>
+<br>
+<br>
+
+<div class="container">
+  <div style="max-height: 25em !important; margin-top: 2em !important;" id="div_one">
+  <p><b>Materials</b> </p>
+  <br>
+  <section>
+    <!--for demo wrap-->
+    <div class="tbl-header">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <thead>
+          <tr>
+            <th>Material Name</th>
+            <th>Material Description</th>
+            <th>Material Cost</th>
+            <th>Action</th>
+           
+          </tr>
+        </thead>
+      </table>
+    </div>
+    <div class="tbl-content">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tbody>
+          <tr *ngFor="let material of materialss.materials">
+            <td>{{material.materialName}}</td>
+            <td>{{material.materialDescription}} </td>
+            <td>{{material.materialCost}}</td>
+            <td><button style="border:1px solid cornflowerblue;" class="btn btn">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
 </div>
 </div>
+<br>
+<br>
+<div sty class="container">
+  <div style="margin-top: 2em;" id="div_one">
+  <p><b>Pictures</b> </p>
+  <br>
+  <div class="row">
+    <div class="col-md-3" *ngFor="let picture of pictures">
+      <img height="100" width="150" src="{{picture.imageBase}}" alt="" >
+    </div>
+    
+  </div>
+  
+</div>
+<div *ngIf="responseUrl">
+<a class="float-right" style="margin: 3.5em" href="https:\localhost:5001\api\Estimates\download\{{responseUrl}}">Download</a>
+</div>
+<button style="margin-left: 3px;background-color: #5cb85c; border: none; margin-top: 3em; margin-bottom: 2em; " class="btn btn-primary float-right" (click)="saveEstimate()" type="submit">Save Estimate </button>
+</div>
+ 
+
+

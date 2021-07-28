@@ -7,8 +7,8 @@ import { Injectable } from '@angular/core';
 export class EstimatesService {
   estimate = {}
   customer = {}
-  work = {}
-  materials = {}
+  work;
+  materials;
   pictures;
   count = 0;
 
@@ -56,6 +56,10 @@ export class EstimatesService {
      console.log("material", this.materials)
    }
 
+   getMaterials(){
+     return this.materials
+   }
+
    setPictures(pictures){
      this.pictures = pictures
 
@@ -66,7 +70,7 @@ export class EstimatesService {
    }
 
    saveEstimate(){
-     console.log("about to save customer", this.customer)
-     return this.http.post("https://localhost:5001/api/Estimates",{customer : this.customer, workType : "gay", workDescription : "homo"})
+     console.log("sending this bad boy off!!", {customer : this.customer, workType : this.work.workType,difficulty: this.work.difficulty,condition: this.work.condition,hours: this.work.hours, workDescription : this.work.workDescription, tasks: this.work.tasks, materials : this.materials.materials, materialOverview: this.materials.overView, pictures : this.pictures })
+     return this.http.post("https://localhost:5001/api/Estimates",{customer : this.customer, workType : this.work.workType,difficulty: this.work.difficulty,condition: this.work.condition,hours: this.work.hours, workDescription : this.work.workDescription, tasks: this.work.tasks, materials : this.materials.materials, materialOverview: this.materials.overView,images : this.pictures })
    }
 }

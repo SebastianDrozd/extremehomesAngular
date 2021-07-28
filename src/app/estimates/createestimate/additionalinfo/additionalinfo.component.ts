@@ -16,7 +16,10 @@ export class AdditionalinfoComponent implements OnInit {
   materials =[] ;
   count = 1;
   overView = ""
+  work;
   ngOnInit(): void {
+    this.work = this.estimateService.getWork();
+    console.log("startup",this.work)
   }
 
   overViewOn(){
@@ -24,10 +27,12 @@ export class AdditionalinfoComponent implements OnInit {
   }
   addMaterial(material){
     this.materials.push(material)
+    console.log(this.materials)
     this.count++;
   }
   addMaterials(){
     this.wantsMaterials = true;
+    
   }
 
   addMaterialsTable(){
@@ -36,6 +41,7 @@ export class AdditionalinfoComponent implements OnInit {
 
   continue(form){
     this.estimateService.setMaterials({materials : this.materials, overView : this.overView})
+    localStorage.setItem("materials",JSON.stringify({materials : this.materials, overView : this.overView}))
     this.estimateService.setCount(this.estimateService.getCount()+1)
     this.router.navigate(['../pictures'], {relativeTo: this.route})
   }
