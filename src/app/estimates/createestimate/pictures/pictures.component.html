@@ -7,9 +7,9 @@
    
 
 <!-- Upload  -->
-<div *ngIf="!uploaded">
+<div *ngIf="!uploaded" style="margin-top: 4em;margin-bottom: 10em;">
  
-<form id="file-upload-form" class="uploader">
+<form id="file-upload-form" class="uploader" style="">
   <input (change)="onSelectFile($event)"id="file-upload" type="file" name="fileUpload" accept="image/*" />
 
   <label for="file-upload" id="file-drag">
@@ -38,7 +38,7 @@
 <div *ngIf="uploaded">
   <h4 class="text-center"><small class="text-muted">Edit Image</small></h4>
   <div style="display: flex; list-style: none;">
-<canvas  id="canvas" height="400" width="800"  style="background: url({{url}}); margin-top: 2em;">
+<canvas  id="canvas" height="400" width="800"  style="background: url({{url}}); margin-top: 1em;">
   Your browser does not support the canvas element.
 </canvas>
 <div>
@@ -76,19 +76,17 @@
 </div>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <hr>
+
+
 <div class="container" *ngIf="wantsMorePictures">
-  <div style="display: inline-block; padding: 2em; margin-top: 2em; " *ngFor="let picture of pictures">
+  <div style="display: inline-block; padding: 2em; margin-top: 1em; " *ngFor="let picture of pictures">
       
-    <div class="images" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 50px;" >
-        <img style="padding: 1em 2em; border-right: 1px solid rgb(221, 228, 241);"  src="{{picture.imageBase}}" alt="" height="150" width="200">
-        
-        <button class="btn " style="margin-left: 1em;width: 7em; ">Edit</button>
+    <div class="images" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 10px; flex-direction: column;" >
+      <div><p style="" class="float-right">x</p></div>
+        <img style="padding: 1em 2em; "  src="{{picture.imageBase}}" alt="" height="175" width="225">
+        <hr>
+        <button class="btn" style="margin-left: 25% ;width: 7em; border: 1px solid rgb(207, 229, 238); background-color: cornflowerblue; color: white; ">Edit</button>
       </div>
   </div>
   <br>
@@ -98,8 +96,8 @@
 
 <div class="" style="display: block;">
             
-    <button style="margin-left: 3px;background-color: #5cb85c; border: none; margin-top: 3em;" class="btn btn-primary float-right" type="submit" (click)="continue()">Continue </button>
-    <button style="margin-top: 3em;background-color: white;color: black; min-width: 5em; border: 1px solid rgb(213, 221, 235);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;  color: #5cb85c;;"routerLink="../">Back</a>  </button>
+    <button style="margin-left: 3px;background-color: #5cb85c; border: none; margin-top: 1em;" class="btn btn-primary float-right" type="submit" (click)="continue()">Continue </button>
+    <button style="margin-top: 1em;background-color: white;color: black; min-width: 5em; border: 1px solid rgb(213, 221, 235);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;  color: #5cb85c;;"routerLink="../">Back</a>  </button>
   </div>      
  </div>
  <ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials"><small class="text-muted" style="font-size: 22px;">Would you like to add Pictures to this estimate?</small></h1>

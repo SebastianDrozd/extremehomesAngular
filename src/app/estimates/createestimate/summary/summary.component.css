@@ -1,5 +1,5 @@
 @import url(https://db.onlinewebfonts.com/c/c16b7f3c0832bc60d12dfeae0073d6d6?family=AktivGroteskW01-Medium);
-
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 #div_one{
    /*50 for other way */
     width:100%; /*100 for other way */
@@ -26,7 +26,7 @@
     padding: 3em;
     margin-top: 3em;
     margin-right: 4%;
-    margin-left: 4%;
+    margin-left: 3%;
     height: 31em;
     border-radius: 30px;
     
@@ -87,7 +87,7 @@
   
   /* demo styles */
   
-  @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+
   body{
     background: -webkit-linear-gradient(left, #25c481, #25b7c4);
     background: linear-gradient(to right, #25c481, #25b7c4);

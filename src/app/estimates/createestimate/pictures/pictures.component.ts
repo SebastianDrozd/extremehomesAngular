@@ -11,12 +11,12 @@ import { EstimatesService } from '../../services/estimates.service';
 export class PicturesComponent implements OnInit {
 
   constructor( private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
-  wantsPictures = true;
+  wantsPictures = false;
   uploaded = false;
   url = ""
   picture = null
   wantsMorePictures = true;
-  pictures = []
+  pictures= []
   ngOnInit(): void {
     
   }
