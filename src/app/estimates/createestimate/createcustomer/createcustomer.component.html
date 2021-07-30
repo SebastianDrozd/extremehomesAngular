@@ -2,22 +2,32 @@
 <form style="margin-top: 2em !important;" class="row g-3 customer" #userForm ="ngForm" novalidate>
  
     <div class="col-md-6">
-      <label for="validationCustom01" class="form-label">First name</label>
+      <label for="validationCustom01" class="form-label">First name <span style="color: red;">*</span></label>
       <input ngModel name="firstName" type="text" class="form-control input-sm" id="validationCustom01" value="" required>
+      <div *ngIf="userForm.controls['firstName'].invalid && (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)" class="alert alert-danger">
+        <div *ngIf="userForm.controls['firstName'].errors.required">
+       First Name is required.
+      </div>
+    </div>
       
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
-      <label for="validationCustom02" class="form-label">Last name</label>
+      <label for="validationCustom02" class="form-label">Last name <span style="color: red;">*</span></label>
       <input ngModel name="lasttName" type="text" class="form-control" id="validationCustom02" value="" required>
+      <div *ngIf="userForm.controls['lasttName'].invalid && (userForm.controls['lasttName'].dirty || userForm.controls['lasttName'].touched)" class="alert alert-danger">
+        <div *ngIf="userForm.controls['lasttName'].errors.required">
+        Last Name is required.
+      </div>
+    </div>
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom03" class="form-label">Address</label>
-      <input ngModel name="address" type="text" class="form-control" id="validationCustom03" required>
+      <input ngModel name="address" type="text" class="form-control" id="validationCustom03" >
      
     </div>
     <div class="col-md-3" style="padding-bottom: 1em;">
       <label for="validationCustom03" class="form-label">City</label>
-      <input ngModel name="city" type="text" class="form-control" id="validationCustom03" required>
+      <input ngModel name="city" type="text" class="form-control" id="validationCustom03" >
      
     </div>
     <div class="col-md-3">
@@ -32,12 +42,21 @@
   
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom01"  class="form-label">Phone Number</label>
-      <input ngModel name="phone" type="text" class="form-control " id="validationCustom01" value="Mark" required>
-      
+      <input ngModel pattern="\d*" name="phone" type="text" class="form-control " id="validationCustom01" value="Mark" >
+      <div *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].dirty || userForm.controls['phone'].touched)" class="alert alert-danger">
+        <div *ngIf="userForm.controls['phone'].errors">
+        Phone number is in the incorrect format
+      </div>
+    </div>
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom01" class="form-label">Email</label>
-      <input ngModel name="email" type="text" class="form-control" id="validationCustom01" value="Mark" >
+      <input ngModel name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" class="form-control" id="validationCustom01" value="Mark" >
+      <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert alert-danger">
+        <div *ngIf="userForm.controls['email'].errors">
+        Email is in an incorrect format
+      </div>
+    </div>
       
     </div>
     <div style="padding-bottom: 2em;" class="col-md-12">
