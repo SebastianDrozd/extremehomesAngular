@@ -7,11 +7,11 @@
       </div>
       <!-- progressbar -->
       <ul id="progressbar">
-        <li class="active poop">Customer Info</li>  
-        <li [ngClass]="{'active' : estimateService.getCount() > 0}">Work Summary</li> 
-        <li [ngClass]="{'active' : estimateService.getCount() > 1}">Materials</li>
-        <li [ngClass]="{'active' : estimateService.getCount() > 2}">Pictures</li>
-        <li [ngClass]="{'active' : estimateService.getCount() > 3}">Summary</li>
+        <li [ngClass]="{'pp' : estimateService.getCount() ==0}" class="active poop">Customer Info</li>  
+        <li [ngClass]="{'active' : estimateService.getCount() > 0}"><div [ngClass]="{'pp' : estimateService.getCount() ==1}">Work Summary</div></li> 
+        <li [ngClass]="{'active' : estimateService.getCount() > 1}"> <div [ngClass]="{'pp' : estimateService.getCount() ==2}" class="pp">Materials </div></li>
+        <li [ngClass]="{'active' : estimateService.getCount() > 2}"><div [ngClass]="{'pp' : estimateService.getCount() ==3}" class="pp">Pictures </div></li>
+        <li [ngClass]="{'active' : estimateService.getCount() > 3}"><div [ngClass]="{'pp' : estimateService.getCount() ==4}" class="pp">Summary</div></li>
       </ul>
       <!-- fieldsets -->
      

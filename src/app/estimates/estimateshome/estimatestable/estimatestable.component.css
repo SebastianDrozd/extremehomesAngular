@@ -1,9 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
 .tableestimates{
-    margin-top: 2em;
+    margin-top: 1em;
 }
 .title{
-    margin-top: 4em;
+    margin-top: 3em;
 }
 .tableback{}
 
@@ -48,7 +48,7 @@ table{
     font-family: 'Roboto', sans-serif;
   }
   section{
-    margin: 50px;
+    margin: 20px;
   }
   
   

@@ -309,10 +309,30 @@
 .multi_step_form #msform #progressbar li.active {
   font-size: 14px;
 }
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		
+	}
 
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+.pp{
+  transform: scale(1);
+	animation: pulse 2s infinite;
+}
 .multi_step_form #msform #progressbar li.active:before, .multi_step_form #msform #progressbar li.active:after {
   background: #5cb85c;
   color: white;
+  
 }
 
 .multi_step_form #msform .action-button {

@@ -1,7 +1,7 @@
 <div class="container">
     <br>
     
- <div *ngIf="wantsPictures; else elseBlock">
+ <div @fade2 *ngIf="wantsPictures; else elseBlock">
    <br>
    <br>
    
@@ -82,7 +82,7 @@
 <div class="container" *ngIf="wantsMorePictures">
   <div style="display: inline-block; padding: 2em; margin-top: 1em; " *ngFor="let picture of pictures">
       
-    <div class="images" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 10px; flex-direction: column;" >
+    <div @fade class="images" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 10px; flex-direction: column;" >
       <div><p style="" class="float-right">x</p></div>
         <img style="padding: 1em 2em; "  src="{{picture.imageBase}}" alt="" height="175" width="225">
         <hr>

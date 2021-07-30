@@ -3,10 +3,25 @@ import start from '../../../../../main.js'
 import * as file from '../../../../../main.js'
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstimatesService } from '../../services/estimates.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-pictures',
   templateUrl: './pictures.component.html',
-  styleUrls: ['./pictures.component.css']
+  styleUrls: ['./pictures.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(2000)
+      ])
+    ]),
+    trigger('fade2', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(1000)
+      ])
+    ])
+  ]
 })
 export class PicturesComponent implements OnInit {
 

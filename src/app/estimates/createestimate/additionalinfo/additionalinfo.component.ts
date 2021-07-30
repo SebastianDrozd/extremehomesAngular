@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstimatesService } from '../../services/estimates.service';
@@ -5,7 +6,21 @@ import { EstimatesService } from '../../services/estimates.service';
 @Component({
   selector: 'app-additionalinfo',
   templateUrl: './additionalinfo.component.html',
-  styleUrls: ['./additionalinfo.component.css']
+  styleUrls: ['./additionalinfo.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(2000)
+      ])
+    ]),
+    trigger('fade2', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(1000)
+      ])
+    ])
+  ]
 })
 export class AdditionalinfoComponent implements OnInit {
 

@@ -40,7 +40,7 @@
           <h4 style=""><small class="text-muted">Would you like to add tasks?</small></h4><button (click)= "setAddTasks()" style="margin-left: 2em;width: 5em;color: cornflowerblue; border: 1px solid rgb(224, 230, 241);" class="btn">yes</button>
          
         </div>
-        <div *ngIf="addTasks" class="container">
+        <div @fade *ngIf="addTasks" class="container">
           <h2 style="margin-left: 10px; padding-bottom: 1em;"><small class="text-muted">Add Task</small></h2>
           <div class="row">
             <div style="" class="input-group col-md-2">
@@ -73,7 +73,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor = "let task of tasks">
+            <tr @fade *ngFor = "let task of tasks">
               <th scope="row">{{task.id}}</th>
               <td>{{task.taskName}}</td>
               <td>{{task.description}}</td>

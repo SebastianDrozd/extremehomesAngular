@@ -1,6 +1,6 @@
 <div class="container">
    
-<div class="container" *ngIf="wantsMaterials; else elseBlock">
+<div @fade2 class="container" *ngIf="wantsMaterials; else elseBlock">
   <br>
   <br>
   <br>
@@ -33,7 +33,7 @@
 </form>
   <br>
   <br>
-  <div *ngIf="materials.length > 0">
+  <div @fade *ngIf="materials.length > 0">
     <table class="table" style="margin-top: 4em;">
       
        <thead style="background-color: cornflowerblue; color: white;" class="thead">
@@ -46,7 +46,7 @@
          </tr>
        </thead>
        <tbody>
-         <tr *ngFor="let material of materials">
+         <tr @fade2 *ngFor="let material of materials">
            <th scope="row">{{material.materialName}}</th>
            <td>{{material.materialDescription}}</td>
            <td>{{material.materialCost}}</td>
@@ -63,7 +63,7 @@
   <br>
   <br>
  
-  <div *ngIf="addOverView">
+  <div @fade *ngIf="addOverView">
     <h1 class="display-6 text-center questionmaterials2" ><small style="font-size: 22px;" class="text-muted"> Materials Overview</small></h1>
     <br>
     <div style="padding-bottom: 2em;" class="col-md-12">

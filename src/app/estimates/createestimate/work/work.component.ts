@@ -1,3 +1,4 @@
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstimatesService } from '../../services/estimates.service';
@@ -5,7 +6,15 @@ import { EstimatesService } from '../../services/estimates.service';
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
-  styleUrls: ['./work.component.css']
+  styleUrls: ['./work.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(2000)
+      ])
+    ])
+  ]
 })
 export class WorkComponent implements OnInit {
    tasks = []
