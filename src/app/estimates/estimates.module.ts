@@ -13,6 +13,7 @@ import { PicturesComponent } from './createestimate/pictures/pictures.component'
 import { SummaryComponent } from './createestimate/summary/summary.component';
 import { FormsModule } from '@angular/forms';
 import { ImagegridComponent } from './createestimate/pictures/imagegrid/imagegrid.component';
+import { IndividualestimateComponent } from './individualestimate/individualestimate.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { ImagegridComponent } from './createestimate/pictures/imagegrid/imagegri
     AdditionalinfoComponent,
     PicturesComponent,
     SummaryComponent,
-    ImagegridComponent
+    ImagegridComponent,
+    IndividualestimateComponent
   ],
   imports: [
     CommonModule,

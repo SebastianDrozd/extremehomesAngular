@@ -1,13 +1,16 @@
 <div class="container">
-    <button style="margin-right: 2em; background-color: cornflowerblue;" class="btn btn-success float-right"><a style="text-decoration: none;color: white;" routerLink="createEstimate">Add estimate</a></button>
+  
     <h3 class="title" ><small class="text-muted">
          Estimates</small></h3>
          <br>
 <div class="tableback">
-  <input type="text" class="form-control" placeholder="Search estimates" aria-label="Username" aria-describedby="addon-wrapping">
+ 
   <section>
     <!--for demo wrap-->
+    <button style="margin-bottom: 2em; background-color: cornflowerblue;" class="btn btn-success float-right"><a style="text-decoration: none;color: white;" routerLink="createEstimate">Add estimate</a></button>
     <div class="tbl-header">
+      <input (change)="filterTable($event)" [(ngModel)]="searchString" type="text" class="form-control" placeholder="Search estimates" aria-label="Username" aria-describedby="addon-wrapping">
+      <br>
       <table cellpadding="0" cellspacing="0" border="0">
         <thead>
           <tr>
@@ -23,12 +26,12 @@
     <div class="tbl-content">
       <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
-          <tr>
-            <td>AAC</td>
-            <td>AUSTRALIAN COMPANY </td>
-            <td>$1.38</td>
+          <tr *ngFor="let estimate of estimates">
+            <td><a style="color: rgb(50, 119, 175);" href="">{{estimate.customer.firstName}} {{estimate.customer.lastName}}</a>  </td>
+            <td>{{estimate.workType}} </td>
+            <td>Complete</td>
             <td>+2.01</td>
-            <td>-0.36%</td>
+            <td>No</td>
           </tr>
           <tr>
             <td>AAD</td>

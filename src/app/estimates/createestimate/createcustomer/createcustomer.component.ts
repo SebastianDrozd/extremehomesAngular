@@ -10,9 +10,11 @@ import Swal from 'sweetalert2'
 export class CreatecustomerComponent implements OnInit {
 
   constructor(private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
+  customers=[]
   selectedOption = ""
   printedOption = ""
   state = ""
+  focus = false;
    count = 0;
    options=[
     { name: "Alabama", value: "Alabama" },
@@ -38,11 +40,24 @@ export class CreatecustomerComponent implements OnInit {
     { name: "Maryland", value: "Maryland" }
 
    ]
+   customerFiltered = []
   ngOnInit(): void {
     console.log(localStorage)
     if(localStorage.length > 0){
       console.log(JSON.parse(localStorage.getItem("customer")))
     }
+  this.estimateService.getCustomers().subscribe(data => {this.customers = data;console.log(this.customers)});
+    
+  }
+  filterCustomer($event){
+    console.log($event.target.value)
+      this.customerFiltered = this.customers
+      this.customerFiltered.filter(customer => {customer.firstName !== null &&customer.firstName.includes($event.target.value)})
+      console.log("filterd",this.customerFiltered)
+  }
+
+  setFocus(){
+
   }
 
   continue(customer){

@@ -10,3 +10,19 @@
   .form-control{
    
   }
+
+  .autocom-box{
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    max-height: 125px;
+    overflow-y: auto;
+    padding: 10px 8px;
+    opacity: 1;
+    pointer-events: auto;
+    margin-bottom: 1em;
+  }
+
+  .active .autocom-box{
+   
+  }

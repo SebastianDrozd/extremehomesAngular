@@ -73,4 +73,8 @@ export class EstimatesService {
      console.log("sending this bad boy off!!", {customer : this.customer, workType : this.work.workType,difficulty: this.work.difficulty,condition: this.work.condition,hours: this.work.hours, workDescription : this.work.workDescription, tasks: this.work.tasks, materials : this.materials.materials, materialOverview: this.materials.overView, pictures : this.pictures })
      return this.http.post("https://localhost:5001/api/Estimates",{customer : this.customer, workType : this.work.workType,difficulty: this.work.difficulty,condition: this.work.condition,hours: this.work.hours, workDescription : this.work.workDescription, tasks: this.work.tasks, materials : this.materials.materials, materialOverview: this.materials.overView,images : this.pictures })
    }
+
+   getAllEstimates(){
+      return this.http.get<any>("https://localhost:5001/api/Estimates")
+   }
 }

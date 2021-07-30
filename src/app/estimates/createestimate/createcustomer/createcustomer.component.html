@@ -1,5 +1,5 @@
 <div class="container">
-<form class="row g-3 customer" #userForm ="ngForm" novalidate>
+<form style="margin-top: 2em !important;" class="row g-3 customer" #userForm ="ngForm" novalidate>
  
     <div class="col-md-6">
       <label for="validationCustom01" class="form-label">First name</label>
@@ -21,7 +21,7 @@
      
     </div>
     <div class="col-md-3">
-      <label for="validationCustom03" class="form-label">state</label>
+      <label for="validationCustom03" class="form-label">State</label>
       <select [(ngModel)] = "selectedOption" class="form-control" (change)= "onChange($event)">
       <option value="" *ngFor= "let o of options">
         {{o.name}}

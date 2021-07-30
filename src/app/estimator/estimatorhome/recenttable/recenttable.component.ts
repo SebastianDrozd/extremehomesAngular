@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EstimatesService } from 'src/app/estimates/services/estimates.service';
 
 @Component({
   selector: 'app-recenttable',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecenttableComponent implements OnInit {
 
-  constructor() { }
+  constructor(private estimateService : EstimatesService) { }
 
+  estimates = []
   ngOnInit(): void {
+    this.estimateService.getAllEstimates().subscribe(data => this.estimates = data)
   }
 
 }
