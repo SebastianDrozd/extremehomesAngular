@@ -22,4 +22,5 @@ footer{
 }
 .box{
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+    border-radius: 20px;
   }

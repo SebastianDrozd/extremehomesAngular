@@ -7,6 +7,7 @@ import { PicturesComponent } from './createestimate/pictures/pictures.component'
 import { SummaryComponent } from './createestimate/summary/summary.component';
 import { WorkComponent } from './createestimate/work/work.component';
 import { EstimateshomeComponent } from './estimateshome/estimateshome.component';
+import { IndividualestimateComponent } from './individualestimate/individualestimate.component';
 
 const routes: Routes = [
   {path: '', component: EstimateshomeComponent },
@@ -16,7 +17,8 @@ const routes: Routes = [
     {path: 'additional-info', component:AdditionalinfoComponent},
     {path: 'pictures', component:PicturesComponent},
     {path: 'summary', component: SummaryComponent}
-  ] }
+  ] },
+  {path: ':id', component: IndividualestimateComponent },
 ];
 
 @NgModule({

@@ -7,8 +7,10 @@
   <br>
   <br>
   <br>
-  <div class="box"  style="border: 1px solid rgb(231, 238, 250); padding: 3em;">
-  <h3 class="text-center"><small class="text-muted ">Add Materials</small></h3>
+  <div class="box"  style="border: 1px solid rgb(231, 238, 250); padding: 4em;">
+  <h3 class="text-center"><small class="text-muted ">Add Materials</small> <svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+  </svg></h3>
    <form class="row g-3 customer" #userForm="ngForm" >
   <div style="display: flex; margin: auto;
   width: 75%; margin-top: 2%; " class="">
@@ -32,37 +34,37 @@
     </div>
   </div>
 </form>
+
+<div @fade *ngIf="materials.length > 0">
+  <table class="table" style="margin-top: 4em;">
+    
+     <thead style="background-color: cornflowerblue; color: white;" class="thead">
+       <tr>
+         <th scope="col">Material</th>
+         <th scope="col">Description</th>
+         <th scope="col">Cost</th>
+         <th scope="col"></th>
+    
+       </tr>
+     </thead>
+     <tbody>
+       <tr @fade2 *ngFor="let material of materials">
+         <th scope="row">{{material.materialName}}</th>
+         <td>{{material.materialDescription}}</td>
+         <td>{{material.materialCost}}</td>
+         <td><button class="btn btn-outline-danger">Delete</button></td>
+       
+        
+       </tr>
+       
+      
+     </tbody>
+   </table>
+   </div>
 </div>
   <br>
   <br>
-  <div @fade *ngIf="materials.length > 0">
-    <table class="table" style="margin-top: 4em;">
-      
-       <thead style="background-color: cornflowerblue; color: white;" class="thead">
-         <tr>
-           <th scope="col">Material</th>
-           <th scope="col">Description</th>
-           <th scope="col">Cost</th>
-           <th scope="col"></th>
-      
-         </tr>
-       </thead>
-       <tbody>
-         <tr @fade2 *ngFor="let material of materials">
-           <th scope="row">{{material.materialName}}</th>
-           <td>{{material.materialDescription}}</td>
-           <td>{{material.materialCost}}</td>
-           <td><button class="btn btn-outline-danger">Delete</button></td>
-         
-          
-         </tr>
-         
-        
-       </tbody>
-     </table>
-     </div>
-  <br>
-  <br>
+  
   <br>
  
   <div @fade *ngIf="addOverView">
@@ -78,7 +80,9 @@
         <button style="background-color: white;color: black; min-width: 5em; border:1px solid rgb(204, 214, 231);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;color: #5cb85c;"routerLink="../">Back</a>  </button>
       </div>
 </div>
-<ng-template  #elseBlock> <h1 class="display-7 text-center questionmaterials animate__animated animate__fadeInDown"><small class="text-muted" style="font-size: 22px;">Would you like to add materials to this estimate?</small></h1>
+<ng-template  #elseBlock> <h1 class="display-7 text-center questionmaterials animate__animated animate__fadeInDown"><small class="text-muted" style="font-size: 22px;">Would you like to add materials to this estimate?</small> <svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+</svg></h1>
     <div  class="text-center buttonsquestions animate__animated animate__fadeInDown">
         <button style="margin-right: 1em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="width: 5em !important; border: 1px solid rgb(203, 216, 240) !important; color: cornflowerblue;"class="btn" (click)="no()">No</button>
     </div></ng-template>

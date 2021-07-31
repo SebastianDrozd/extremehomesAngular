@@ -77,4 +77,8 @@ export class EstimatesService {
    getAllEstimates(){
       return this.http.get<any>("https://localhost:5001/api/Estimates")
    }
+
+   getEstimateById(id){
+     return this.http.get<any>("https://localhost:5001/api/Estimates/" + id)
+   }
 }

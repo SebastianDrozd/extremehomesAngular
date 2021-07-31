@@ -10,6 +10,7 @@ export class RecentcusttableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log("this is customers",this.customers)
   }
 
 }
