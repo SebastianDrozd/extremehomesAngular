@@ -17,11 +17,9 @@
 
 footer{
     margin: auto;
-    
-    border-radius: 200px;
-    position: fixed;
-    bottom: 0;
+    padding: 2em;
     background-color: cornflowerblue;
-    width: 100%;
-    overflow: visible;
 }
+.box{
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
+  }

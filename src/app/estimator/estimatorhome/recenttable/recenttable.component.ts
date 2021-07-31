@@ -8,6 +8,7 @@ import { EstimatesService } from 'src/app/estimates/services/estimates.service';
 })
 export class RecenttableComponent implements OnInit {
 
+  searchString = "";
   constructor(private estimateService : EstimatesService) { }
 
   estimates = []

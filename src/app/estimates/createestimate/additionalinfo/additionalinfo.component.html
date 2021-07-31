@@ -7,7 +7,7 @@
   <br>
   <br>
   <br>
-  <div style="border: 1px solid rgb(231, 238, 250); padding: 3em;">
+  <div class="box"  style="border: 1px solid rgb(231, 238, 250); padding: 3em;">
   <h3 class="text-center"><small class="text-muted ">Add Materials</small></h3>
    <form class="row g-3 customer" #userForm="ngForm" >
   <div style="display: flex; margin: auto;
@@ -78,9 +78,9 @@
         <button style="background-color: white;color: black; min-width: 5em; border:1px solid rgb(204, 214, 231);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;color: #5cb85c;"routerLink="../">Back</a>  </button>
       </div>
 </div>
-<ng-template #elseBlock> <h1 class="display-7 text-center questionmaterials"><small class="text-muted" style="font-size: 22px;">Would you like to add materials to this estimate?</small></h1>
-    <div class="text-center buttonsquestions">
-        <button style="margin-right: 1em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="width: 5em !important; border: 1px solid rgb(203, 216, 240) !important; color: cornflowerblue;"class="btn">No</button>
+<ng-template  #elseBlock> <h1 class="display-7 text-center questionmaterials animate__animated animate__fadeInDown"><small class="text-muted" style="font-size: 22px;">Would you like to add materials to this estimate?</small></h1>
+    <div  class="text-center buttonsquestions animate__animated animate__fadeInDown">
+        <button style="margin-right: 1em; background-color: cornflowerblue; color: white;" (click)="addMaterials()" class="btn">Yes</button><button style="width: 5em !important; border: 1px solid rgb(203, 216, 240) !important; color: cornflowerblue;"class="btn" (click)="no()">No</button>
     </div></ng-template>
 </div>
 <br>

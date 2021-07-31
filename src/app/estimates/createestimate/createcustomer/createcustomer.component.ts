@@ -2,10 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstimatesService } from '../../services/estimates.service';
 import Swal from 'sweetalert2'
+import { animate, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-createcustomer',
   templateUrl: './createcustomer.component.html',
-  styleUrls: ['./createcustomer.component.css']
+  styleUrls: ['./createcustomer.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('* => void', [
+        style({ transform: 'translateY(0)' }),
+        animate(100, style({transform: 'translateY(50%)'}))
+      ])
+    ])
+  ]
 })
 export class CreatecustomerComponent implements OnInit {
 
@@ -47,7 +56,29 @@ export class CreatecustomerComponent implements OnInit {
       console.log(JSON.parse(localStorage.getItem("customer")))
     }
   this.estimateService.getCustomers().subscribe(data => {this.customers = data;console.log(this.customers)});
-    
+    ///////////////////////////////////////////
+    window.addEventListener("scroll", function() {
+      const distance = window.scrollY
+      //@ts-ignore
+      document.querySelector("#myForm").style.transform = `translateY(${distance *
+        1}px)`
+      document.querySelector(
+        ".container"
+        //@ts-ignore
+      ).style.transform = `translateY(${distance * 0.3}px)`
+      setTimeout(() => {
+        document.querySelector("#myForm").classList.add("animate-me")
+      }, 400)
+    })
+
+
+
+
+
+
+
+    ///////
+  
   }
   filterCustomer($event){
     console.log($event.target.value)
@@ -84,3 +115,7 @@ export class CreatecustomerComponent implements OnInit {
   }
 
 }
+function translateY(arg0: number): string | number {
+  throw new Error('Function not implemented.');
+}
+

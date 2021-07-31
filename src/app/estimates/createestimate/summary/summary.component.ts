@@ -16,6 +16,8 @@ export class SummaryComponent implements OnInit {
   path = ""
   materialss;
   responseUrl = ""
+  hasPictures = false;
+  hasMaterials = false;
   ngOnInit(): void {
    this.customer= JSON.parse(localStorage.getItem("customer"))
    this.estimateService.setCustomer(this.customer)
@@ -32,6 +34,13 @@ export class SummaryComponent implements OnInit {
    this.estimateService.setMaterials(this.materialss)
    console.log("summary Service materials",this.materialss)
    console.log(localStorage)
+   if(this.pictures.length > 0){
+     this.hasPictures = true;
+   }
+   if(this.materialss.materials.length > 0){
+    this.hasMaterials = true;
+  }
+
   
   }
 

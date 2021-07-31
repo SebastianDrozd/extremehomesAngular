@@ -82,9 +82,9 @@
 <div class="container" *ngIf="wantsMorePictures">
   <div style="display: inline-block; padding: 2em; margin-top: 1em; " *ngFor="let picture of pictures">
       
-    <div @fade class="images" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 10px; flex-direction: column;" >
+    <div @fade class="images box" style="display: flex; border: 1px solid rgb(238, 242, 248); padding: 1em; border-radius: 10px; flex-direction: column;" >
       <div><p style="" class="float-right">x</p></div>
-        <img style="padding: 1em 2em; "  src="{{picture.imageBase}}" alt="" height="175" width="225">
+        <img  style="padding: 1em 2em; "  src="{{picture.imageBase}}" alt="" height="175" width="225">
         <hr>
         <button class="btn" style="margin-left: 25% ;width: 7em; border: 1px solid rgb(207, 229, 238); background-color: cornflowerblue; color: white; ">Edit</button>
       </div>
@@ -100,9 +100,9 @@
     <button style="margin-top: 1em;background-color: white;color: black; min-width: 5em; border: 1px solid rgb(213, 221, 235);" class="btn btn-primary float-right" type="submit"><a style="text-decoration: none;  color: #5cb85c;;"routerLink="../">Back</a>  </button>
   </div>      
  </div>
- <ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials"><small class="text-muted" style="font-size: 22px;">Would you like to add Pictures to this estimate?</small></h1>
-     <div class="text-center buttonsquestions">
-         <button style="margin-right: 2em; background-color: cornflowerblue; color: white;" (click)="addPictures()" class="btn">Yes</button><button style="border: 1px solid black"class="btn">No</button>
+ <ng-template #elseBlock> <h1 class="display-6 text-center questionmaterials animate__animated animate__fadeInDown"><small class="text-muted" style="font-size: 22px;">Would you like to add Pictures to this estimate?</small></h1>
+     <div class="text-center buttonsquestions animate__animated animate__fadeInDown">
+         <button style="margin-right: 2em; background-color: cornflowerblue; color: white;" (click)="addPictures()" class="btn ">Yes</button><button style="border: 1px solid rgb(203, 216, 240) !important; color: cornflowerblue;" (click)="no()" class="btn">No</button>
      </div></ng-template>
  </div>
  <br>

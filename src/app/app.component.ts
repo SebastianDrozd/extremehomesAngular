@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'extremehomes';
+
+  wantSideBar = false;
+
+  displayWantsSidebar(boolean){
+    console.log(boolean)
+    this.wantSideBar = boolean;
+  }
 }

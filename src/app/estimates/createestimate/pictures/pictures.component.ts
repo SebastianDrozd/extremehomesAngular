@@ -73,4 +73,8 @@ export class PicturesComponent implements OnInit {
     console.log(this.pictures)
     console.log(this.pictures.length)
   }
+
+  no(){
+    this.router.navigate(['../summary'],  {relativeTo: this.route})
+  }
 }

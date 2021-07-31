@@ -60,5 +60,9 @@ export class AdditionalinfoComponent implements OnInit {
     this.estimateService.setCount(this.estimateService.getCount()+1)
     this.router.navigate(['../pictures'], {relativeTo: this.route})
   }
+  no(){
+    this.router.navigate(['../pictures'],  {relativeTo: this.route})
+    localStorage.setItem("materials",JSON.stringify({materials : this.materials, overView : this.overView}))
+  }
 
 }
