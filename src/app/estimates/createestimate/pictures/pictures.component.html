@@ -70,7 +70,7 @@
   <div class="color-field" style="background: blue"></div>
   <div class="color-field" style="background: green"></div>
   <div class="color-field" style="background: yellow"></div>
-  <input type="color" class="color-picked" name="" id="">
+  <input (change)="setColor()" [(ngModel)] ="color"type="color" class="color-picked" name="" id="">
   <input type="range" min="1" max="100" class="pen-range"name="" id="">
 </div>
 </div>

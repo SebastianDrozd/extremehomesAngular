@@ -32,6 +32,7 @@ export class PicturesComponent implements OnInit {
   picture = null
   wantsMorePictures = true;
   pictures= []
+  color = "";
   ngOnInit(): void {
     
   }
@@ -76,5 +77,10 @@ export class PicturesComponent implements OnInit {
 
   no(){
     this.router.navigate(['../summary'],  {relativeTo: this.route})
+  }
+
+  setColor(){
+    start.canvas
+    console.log("color",start.draw_color)
   }
 }

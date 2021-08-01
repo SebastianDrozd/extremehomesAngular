@@ -1,3 +1,11 @@
+
+
+
+
+
+
+
+
 export default function start(url){
 
  
@@ -52,6 +60,8 @@ function stop(event){
 		is_drawing= false;
 		
 	}
+
+
 }
 
 
@@ -68,3 +78,4 @@ export function getImage(){
 	return image
 }
 
+export function setColor(){}
