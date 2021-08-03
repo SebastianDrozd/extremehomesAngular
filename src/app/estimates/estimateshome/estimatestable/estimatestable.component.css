@@ -2,6 +2,22 @@
 .tableestimates{
     margin-top: 1em;
 }
+.pagination {
+  display: inline-block;
+  width: 100%;
+  padding-top: 2em !important;
+}
+
+.pagination a {
+  color: black;
+  text-align: center;
+  margin-left: 6%;
+  cursor: pointer;
+  padding: 8px 3em;
+  text-decoration: none;
+  color: rgb(99, 108, 124);
+  font-size: 12px;
+}
 .title{
     margin-top: 3em;
 }
