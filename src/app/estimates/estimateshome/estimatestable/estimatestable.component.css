@@ -18,6 +18,10 @@
   color: rgb(99, 108, 124);
   font-size: 12px;
 }
+.pagination a:hover {
+  background-color: rgb(247, 250, 255);
+  border-radius: 20%;
+}
 .title{
     margin-top: 3em;
 }

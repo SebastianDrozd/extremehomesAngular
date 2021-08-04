@@ -6,6 +6,7 @@ import { EstimatorhomeComponent } from './estimatorhome/estimatorhome.component'
 import { RecenttableComponent } from './estimatorhome/recenttable/recenttable.component';
 import { ShortcutsComponent } from './estimatorhome/shortcuts/shortcuts.component';
 import { RecentcusttableComponent } from './estimatorhome/recentcusttable/recentcusttable.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -14,11 +15,13 @@ import { RecentcusttableComponent } from './estimatorhome/recentcusttable/recent
     RecenttableComponent,
     ShortcutsComponent,
     RecentcusttableComponent,
+  
     
   ],
   imports: [
     CommonModule,
-    EstimatorRoutingModule
+    EstimatorRoutingModule,
+    NgxChartsModule
   ]
 })
 export class EstimatorModule { }

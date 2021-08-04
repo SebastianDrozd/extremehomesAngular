@@ -14,6 +14,8 @@ import { SummaryComponent } from './createestimate/summary/summary.component';
 import { FormsModule } from '@angular/forms';
 import { ImagegridComponent } from './createestimate/pictures/imagegrid/imagegrid.component';
 import { IndividualestimateComponent } from './individualestimate/individualestimate.component';
+import { EstimateschartComponent } from './estimateshome/estimateschart/estimateschart.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -28,12 +30,14 @@ import { IndividualestimateComponent } from './individualestimate/individualesti
     PicturesComponent,
     SummaryComponent,
     ImagegridComponent,
-    IndividualestimateComponent
+    IndividualestimateComponent,
+    EstimateschartComponent
   ],
   imports: [
     CommonModule,
     EstimatesRoutingModule,
     FormsModule,
+    NgxChartsModule
 
   ]
 })

@@ -35,9 +35,14 @@ export class PicturesComponent implements OnInit {
   wantsMorePictures = true;
   pictures= []
   wantSelect = false;
+  index =-1;
   is_drawing = false;
+  lineWidthRange ;
+  private restoreArray = [];
+
   ngOnInit(): void {
-    
+   console.log("this",this.index)
+   localStorage.setItem("index", "-1");
   }
 
   addPictures(){
@@ -145,6 +150,7 @@ export class PicturesComponent implements OnInit {
    this.canvas.width = 800;
    //@ts-ignore
   this.canvas.height = 400;
+    console.log("thi2", this.index)
   let bgImg = new Image();
   bgImg.src = this.url;
   bgImg.onload = () => {
@@ -168,16 +174,18 @@ export class PicturesComponent implements OnInit {
   }
    start(event) {
     this.is_drawing = true;
+    
    //@ts-ignore
    this.canvas = document.getElementById("canvas");
    //@ts-ignore
    this.context = this.canvas.getContext("2d");
+   console.log("thi23", this.index)
    console.log("started")
    console.log("context in start", this.context)
     this.context.beginPath();
     //@ts-ignore
     this.context.moveTo(event.clientX - this.canvas.getBoundingClientRect().left  , event.clientY - this.canvas.getBoundingClientRect().top);
-  
+    
     event.preventDefault();
   }
 
@@ -187,20 +195,36 @@ export class PicturesComponent implements OnInit {
       this.context.lineTo(event.clientX - this.canvas.getBoundingClientRect().left, 
       //@ts-ignore
         event.clientY - this.canvas.getBoundingClientRect().top);
-      this.context.lineWidth = 2;
+       
+      this.context.lineWidth = this.lineWidthRange;
       this.context.lineCap = "round";
       this.context.lineJoin = "round";
       this.context.stroke();
     }
   }
   stop(event){
+    var temp = parseInt(localStorage.getItem("index"))
     if(this.is_drawing){
       this.context.stroke();
       this.context.closePath();
       this.is_drawing= false;
-      
     }
-  
+
+    if(event.type != 'mouseout'){
+      //@ts-ignore
+      if(this.restoreArray== undefined){
+        var array = [];
+      }
+      else{
+        array = this.restoreArray
+      }
+       //@ts-ignore
+      array.push(this.context.getImageData(0,0, this.canvas.width, this.canvas.height))
+     
+      localStorage.setItem("index", temp + 1 + "")
+      this.restoreArray = array;
+      console.log(this.restoreArray, "index", localStorage.getItem("index"))
+    }
   
   }
 
@@ -275,5 +299,39 @@ export class PicturesComponent implements OnInit {
     this.canvas.addEventListener("mouseup", this.stop, false);
     //@ts-ignore
     this.canvas.addEventListener("mouseout", this.stop, false);
+  }
+
+  clearCanvas(){
+    this.context.fillStyle= "white";
+    //@ts-ignore
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height)
+    //@ts-ignore
+    this.context.fillRect(0, 0, this.canvas.width, this.canvas.height)
+    let bgImg = new Image();
+    bgImg.src = this.url;
+    bgImg.onload = () => {
+      this.context.drawImage(bgImg, 0, 0);
+     }
+     this.restoreArray = []
+     this.index = -1
+  }
+  inputChanged(value){
+    this.lineWidthRange=value.target.value
+    console.log("linewith randge", this.lineWidthRange)
+  }
+
+  undoLast(){
+    console.log("thi is arra",this.restoreArray)
+     if(parseInt(localStorage.getItem("index")) <= 0){
+       this.clearCanvas();
+     }
+     else{
+       var num = parseInt(localStorage.getItem("index"));
+       num -= 1;
+      localStorage.setItem("index", "" + num )
+       this.restoreArray.pop();
+      
+       this.context.putImageData(this.restoreArray[num],0,0)
+     }
   }
 }

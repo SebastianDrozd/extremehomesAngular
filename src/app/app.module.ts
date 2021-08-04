@@ -8,6 +8,7 @@ import { FooterComponent } from './SiteLayout/footer/footer.component';
 import { SidebarComponent } from './SiteLayout/sidebar/sidebar.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @NgModule({
   declarations: [
     AppComponent,

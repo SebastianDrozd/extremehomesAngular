@@ -1,14 +1,15 @@
 <div class="container">
   
-    <h3 class="title" ><small class="text-muted">
-         Estimates</small></h3>
+  
+         <br>
          <br>
 <div class="tableback">
  
   <section>
+    <app-estimateschart></app-estimateschart>
     <!--for demo wrap-->
-    <button style="margin-bottom: 2em; background-color: cornflowerblue;" class="btn btn-success float-right"><a style="text-decoration: none;color: white;" routerLink="createEstimate">Add estimate</a></button>
-    <div class="tbl-header">
+    
+    <div class="tbl-header" style="margin-top: 2em;">
       <input (change)="filterTable($event)" [(ngModel)]="searchString" type="text" class="form-control" placeholder="Search estimates" aria-label="Username" aria-describedby="addon-wrapping">
       <br>
       <table cellpadding="0" cellspacing="0" border="0">
@@ -27,7 +28,7 @@
       <table cellpadding="0" cellspacing="0" border="0">
         <tbody>
           <tr *ngFor="let estimate of currentPageEstimates">
-            <td><a routerLink="{{estimate.id}}" style="color: rgb(50, 119, 175);" href=""></a>  </td>
+            <td><a routerLink="{{estimate.id}}" style="color: rgb(50, 119, 175);" href="">John Smith</a>  </td>
             <td>{{estimate.workType}} </td>
             <td>Complete</td>
             <td>+2.01</td>
@@ -48,7 +49,13 @@
       
       <a href="#">&raquo;</a>
     </div>
+<br>
+<br>
+    <button style="margin-bottom: 2em; background-color: cornflowerblue;" class="btn btn-success float-right"><a style="text-decoration: none;color: white;" routerLink="createEstimate">Add estimate</a></button>
+ <br>
   </section>
   
 </div>
+<br>
+<br>
 </div>
