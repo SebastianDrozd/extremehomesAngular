@@ -8,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 export class EstimateshomeComponent implements OnInit {
 
   constructor() { }
-
+  saleData = [
+    {
+      "name": "Germany",
+      "value": 8940000
+    },
+    {
+      "name": "USA",
+      "value": 5000000
+    }
+  ]
   ngOnInit(): void {
   }
 

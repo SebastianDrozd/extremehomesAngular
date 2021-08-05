@@ -1,0 +1,79 @@
+
+<div class="container">
+    <div class="box" style="border-radius: 20px; margin-top: 5em; ">
+        <br>
+        <br>
+    <div><h5 style="margin-left:1em" class="text-muted">Customers</h5></div>
+    <div style="display: flex; padding: 4em; justify-content: center;">
+    <div style="padding: 2em; margin: 2em;min-width: 20%;border-radius: 20px;" class="box">
+        <p class="text-center">New Customers</p>
+        <p class="text-center">5</p>
+    </div>
+    <div style="padding: 2em; margin: 2em;min-width: 20%;border-radius: 20px;" class="box">
+        <p class="text-center">  Total Customers</p>
+        <p class="text-center">75</p>
+    </div>
+    <div style="padding: 2em; margin: 2em;min-width: 20%;border-radius: 20px;" class="box">
+        <p class="text-center">Messages</p>
+        <p class="text-center">1</p>
+    </div>
+    <div style="padding: 2em; margin: 2em; min-width: 20%;border-radius: 20px;" class="box">
+        <p class="text-center">Emails</p>
+        <p class="text-center">2</p>
+    </div>
+    </div>
+
+    <section>
+        
+        
+        <div class="tbl-header" style="margin-top: 2em;">
+          <input  type="text" class="form-control" placeholder="Search Customers" aria-label="Username" aria-describedby="addon-wrapping">
+          <br>
+          <table cellpadding="0" cellspacing="0" border="0">
+            <thead>
+              <tr>
+                <th>First name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Date Created</th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+        <div class="tbl-content">
+          <table cellpadding="0" cellspacing="0" border="0">
+            <tbody>
+              <tr *ngFor="let customer of customers">
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.firstName}}</td>
+                <td>{{customer.firstName}}</td>
+              </tr>
+              
+            </tbody>
+            
+    
+          </table>
+          
+        </div>
+        <hr>
+        <div class="pagination">
+          <a  href="#">&laquo;</a>
+        
+    
+          
+          <a href="#">&raquo;</a>
+        </div>
+    <br>
+    <br>
+        <button style="margin-bottom: 2em; background-color: cornflowerblue;" class="btn btn-success float-right"><a style="text-decoration: none;color: white;" routerLink="createEstimate">Create new Customer</a></button>
+     <br>
+     <br>
+      </section>
+    </div>
+
+
+    
+</div>

@@ -4,6 +4,7 @@ import * as file from '../../../../../main.js'
 import { ActivatedRoute, Router } from '@angular/router';
 import { EstimatesService } from '../../services/estimates.service';
 import { animate, style, transition, trigger } from '@angular/animations';
+import { CanvasService } from '../../services/canvas.service'
 @Component({
   selector: 'app-pictures',
   templateUrl: './pictures.component.html',
@@ -27,7 +28,12 @@ export class PicturesComponent implements OnInit {
   @ViewChild('myCanvas', {static: false}) canvas: ElementRef <HTMLCanvasElement>;
    public context: CanvasRenderingContext2D
 
-  constructor( private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
+  constructor(private canvasService : CanvasService, private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) {
+   
+    this.stop = this.stop.bind(this)
+    this.start = this.start.bind(this)
+    this.draw = this.draw.bind(this)
+   }
   wantsPictures = false;
   uploaded = false;
   url = ""
@@ -38,11 +44,12 @@ export class PicturesComponent implements OnInit {
   index =-1;
   is_drawing = false;
   lineWidthRange ;
-  private restoreArray = [];
-
+  public restoreArray = [];
+  arrCoppy = []
   ngOnInit(): void {
    console.log("this",this.index)
    localStorage.setItem("index", "-1");
+   this.canvasService.setDude()
   }
 
   addPictures(){
@@ -123,9 +130,9 @@ export class PicturesComponent implements OnInit {
     //@ts-ignore
    this.canvas.removeEventListener("touchend", this.stop, false);
     //@ts-ignore
-   this.canvas.removeEventListener("mouseup", this.stop, false);
+   this.canvas.removeEventListener("mouseup", stop, false);
     //@ts-ignore
-   this.canvas.removeEventListener("mouseout", this.stop, false);
+   this.canvas.removeEventListener("mouseout", stop, false);
     console.log(this.canvas)
     //file.start2()
 
@@ -172,6 +179,7 @@ export class PicturesComponent implements OnInit {
  this.canvas.addEventListener("mouseout", this.stop, false);
 
   }
+ 
    start(event) {
     this.is_drawing = true;
     
@@ -182,6 +190,9 @@ export class PicturesComponent implements OnInit {
    console.log("thi23", this.index)
    console.log("started")
    console.log("context in start", this.context)
+   console.log("11111111111",this.restoreArray)
+   this.arrCoppy = this.restoreArray
+    console.log("arrrcopyy",this.arrCoppy)
     this.context.beginPath();
     //@ts-ignore
     this.context.moveTo(event.clientX - this.canvas.getBoundingClientRect().left  , event.clientY - this.canvas.getBoundingClientRect().top);
@@ -202,8 +213,12 @@ export class PicturesComponent implements OnInit {
       this.context.stroke();
     }
   }
+  transfer(arr){
+    this.restoreArray = arr;
+  }
   stop(event){
     var temp = parseInt(localStorage.getItem("index"))
+    console.log("stop", this.is_drawing)
     if(this.is_drawing){
       this.context.stroke();
       this.context.closePath();
@@ -222,7 +237,7 @@ export class PicturesComponent implements OnInit {
       array.push(this.context.getImageData(0,0, this.canvas.width, this.canvas.height))
      
       localStorage.setItem("index", temp + 1 + "")
-      this.restoreArray = array;
+      this.transfer(array)
       console.log(this.restoreArray, "index", localStorage.getItem("index"))
     }
   
@@ -321,7 +336,9 @@ export class PicturesComponent implements OnInit {
   }
 
   undoLast(){
-    console.log("thi is arra",this.restoreArray)
+    var copy = this.arrCoppy
+    console.log(copy)
+    
      if(parseInt(localStorage.getItem("index")) <= 0){
        this.clearCanvas();
      }

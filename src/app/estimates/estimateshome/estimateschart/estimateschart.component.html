@@ -2,9 +2,9 @@
 <br>
 <h3 class="title" ><small class="text-muted">
     Estimates</small></h3>
-<div style="margin-top: 2em; width: 100%; margin-bottom: 18em; margin-left: 1%;">
-<ngx-charts-bar-horizontal 
-    [view]="[1000,400]"
+<div style="margin-top: 2em; width: auto; margin-bottom: 4em; margin-left: 1%; display: flex;">
+<ngx-charts-bar-vertical 
+    [view]="[500,300]"
     [results]="saleData"
     [xAxisLabel]=""
     [legendTitle]="'Product Sale Chart'"
@@ -16,13 +16,11 @@
     [yAxis]="true"
     [scheme] ="'aqua'"
     [gradient]="true">
-</ngx-charts-bar-horizontal>
-<br>
-<br>
+</ngx-charts-bar-vertical>
+
+
 </div>
 <br>
-<br>
-<br>
-<br>
+
 
     
