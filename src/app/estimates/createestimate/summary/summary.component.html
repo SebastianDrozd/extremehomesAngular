@@ -1,8 +1,11 @@
 <div class="container">
   <h2><small class="text-muted">Confirm Estimate</small> </h2>
     <p>Please review the information below to ensure that the correct subject and visit are selected.</p>
-    <br>
-  <div class="box" id="div_one">
+    <br><div @fade @fade2 *ngIf="custEdited" style="opacity: 0;" class="alert alert-success alert-dismissible animate__animated animate__bounce" role="alert">
+      <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Customer </strong>Information succesfully updated 
+      </div>
+  <div *ngIf="!wantEditCustomer; else elseBlock" class="box" id="div_one">
     
     <p><b>Customer</b>  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
       <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
@@ -54,12 +57,107 @@
     <p>Notes</p>
     <p>{{customer.notes}}</p>
     <br>
-    <button style="border: 1px solid rgb(191, 212, 233); width: 7em" class="btn float-right">Edit</button>
+    <button style="border: 1px solid rgb(191, 212, 233); width: 7em" class="btn float-right" (click)="wantsEditCustomer()">Edit</button>
   </div>
 </div>
   </div>
+
+  <ng-template  #elseBlock><div class="box" id="div_one">
+    
+    <p><b> Edit Customer</b>  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+      <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+    </svg></p>
+    <br>
+    <div  class="row">
+      <div class="col-md-5">
+    <p><small  class="text-muted">First Name</small> </p>
+    <input (change)="handleFirstName($event)" [value]="customer.firstName" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  <div class="col-md-5">
+    <p><small  class="text-muted">Last Name</small> </p>
+    <input (change)="handleLastName($event)" [value]="customer.lastName" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  <br>
+  <div style="margin-top: 2em;" class="col-md-5">
+    <p><small  class="text-muted">Street Address</small> </p>
+    <input (change)="handleStreetAddress($event)" [value]="customer.address.streetAddress" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  <div style="margin-top: 2em;" class="col-md-2">
+    <p><small  class="text-muted">City</small> </p>
+    <input (change)="handleCity($event)" [value]="customer.address.city" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  <div style="margin-top: 2em;" class="col-md-2">
+    <p><small  class="text-muted">State</small> </p>
+    <input  (change)="handleState($event)" [value]="customer.address.state" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  <div style="margin-top: 2em;" class="col-md-2">
+    <p><small  class="text-muted">Zipcode</small> </p>
+    <input  [value]="60098" class="form-control" style=" background: transparent; 
+    border: none;
+    border-bottom: 1px solid #d2e7f3;
+    outline:none;
+    box-shadow:none;" type="text">
+  </div>
+  </div>
+  <br>
+  
+  <div @fade class="row">
+    <div style="margin-top: 0em;" class="col-md-4">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-phone" viewBox="0 0 16 16">
+        <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+        <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+      </svg></p>
+      <input (change)="handlePhone($event)" [value]="customer.phone" class="form-control" style=" background: transparent; 
+      border: none;
+      border-bottom: 1px solid #d2e7f3;
+      outline:none;
+      box-shadow:none;" type="text">
+    </div>
+    <div style="margin-top: 0em;" class="col-md-4">
+      <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2zm13 2.383-4.758 2.855L15 11.114v-5.73zm-.034 6.878L9.271 8.82 8 9.583 6.728 8.82l-5.694 3.44A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.739zM1 11.114l4.758-2.876L1 5.383v5.73z"/>
+      </svg></p>
+      <input (change)="handleEmail($event)" [value]="customer.email" class="form-control" style=" background: transparent; 
+      border: none;
+      border-bottom: 1px solid #d2e7f3;
+      outline:none;
+      box-shadow:none;" type="text">
+    </div>
+    
+  </div>
+<br>
+<br>
+<div @fade class="row">
+  <div class="col-md-12">
+    <p><small  class="text-muted">Notes</small> </p>
+    <textarea (change)="handleNotes($event)" value="{{customer.notes}}"  class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <br>
+    <button style="border: 1px solid rgb(191, 212, 233); width: 7em; background: cornflowerblue; color: white;" class="btn float-right" (click) ="saveEditCustomer()" >Save</button>
+  </div>
+</div>
+  </div></ng-template>
  <br> 
-  <div class="box"  id="div_two">
+  <div *ngIf="!wantEditWork;else elseBlock2"class="box"  id="div_two">
      
     <p><b>Work</b><svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
       <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V5.5zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
@@ -100,10 +198,79 @@
 </div>
 <br>
 <br>
+<button style="border: 1px solid rgb(191, 212, 233); width: 7em" class="btn float-right" (click)="wantsEditWork()">Edit</button>
 
   
     <br>
   </div>
+  <ng-template #elseBlock2>
+    <div class="box"  id="div_two">
+     
+      <p><b>Edit Work</b><svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-file-earmark-medical" viewBox="0 0 16 16">
+        <path d="M7.5 5.5a.5.5 0 0 0-1 0v.634l-.549-.317a.5.5 0 1 0-.5.866L6 7l-.549.317a.5.5 0 1 0 .5.866l.549-.317V8.5a.5.5 0 1 0 1 0v-.634l.549.317a.5.5 0 1 0 .5-.866L8 7l.549-.317a.5.5 0 1 0-.5-.866l-.549.317V5.5zm-2 4.5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 2a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5z"/>
+        <path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5v2z"/>
+      </svg> </p>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <p>Type </p>
+          <input (change)="handleWorkType($event)" [value]="work.workType" class="form-control" style=" background: transparent; 
+          border: none;
+          border-bottom: 1px solid #d2e7f3;
+          outline:none;
+          box-shadow:none;" type="text">
+        </div>
+   
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-3">
+        <p>Condition </p>
+        <input (change)="handleCondition($event)" [value]="work.condition" class="form-control" style=" background: transparent; 
+        border: none;
+        border-bottom: 1px solid #d2e7f3;
+        outline:none;
+        box-shadow:none;" type="text">
+      </div>
+      <div class="col-md-3">
+        <p>Difficulty </p>
+        <input (change)="handleDifficulty($event)" [value]="work.difficulty" class="form-control" style=" background: transparent; 
+        border: none;
+        border-bottom: 1px solid #d2e7f3;
+        outline:none;
+        box-shadow:none;" type="text">
+      </div>
+      <div class="col-md-3">
+        <p>Hours </p>
+        <input (change)="handleHours($event)" [value]="work.hours" class="form-control" style=" background: transparent; 
+        border: none;
+        border-bottom: 1px solid #d2e7f3;
+        outline:none;
+        box-shadow:none;" type="text">
+      </div>
+    
+    
+  </div>
+  <br>
+  
+  <div class="row">
+    <div class="col-md-12">
+      <p>Description </p>
+      <textarea (change)="handleDescription($event)" [value]="work.workDescription" class="form-control" style=" background: transparent; 
+      border: none;
+      border-bottom: 1px solid #d2e7f3;
+      outline:none;
+      box-shadow:none;" type="text"></textarea>
+    </div>
+  </div>
+  <br>
+ 
+  <button style="border: 1px solid rgb(191, 212, 233); width: 7em; background: cornflowerblue; color: white;" class="btn float-right" (click) ="saveEditWork()" >Save</button>
+  
+    
+      <br>
+    </div>
+  </ng-template>
   <div class="box"  id="div_one2" style="margin-top: 3em; border-radius: 30px; max-height: 31em; width: 45%;"><div class="tasks">
     <p><b>Tasks</b> <svg style="margin-left: 1em;" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
       <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>

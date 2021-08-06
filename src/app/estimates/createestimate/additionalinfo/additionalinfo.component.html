@@ -25,14 +25,18 @@
       
     </div>
     <div style="padding-top: 5px;" class="input-group col-md-3">
-      <input ngModel style="border: none;" name="materialCost" type="text" class="inputmaterials" placeholder=" Cost" aria-label="Recipient's username" aria-describedby="button-addon2">
-      
+      <input pattern="\d*" ngModel style="border: none;" name="materialCost" type="text" class="inputmaterials" placeholder=" Cost" aria-label="Recipient's username" aria-describedby="button-addon2">
     </div>
     <div style="padding-top: 5px;" class="input-group col-md-3">
-     <button style="max-height: 3em;"class="btn btn-outline-success" (click)="addMaterial({ materialName : userForm.value.materialName, materialDescription : userForm.value.materialDescription, materialCost : userForm.value.materialCost})">Add</button>
+     <button [disabled] ="!userForm.valid"  style="max-height: 3em;"class="btn btn-outline-success" (click)="addMaterial({ materialName : userForm.value.materialName, materialDescription : userForm.value.materialDescription, materialCost : userForm.value.materialCost})">Add</button>
      <button style="max-height: 3em; margin-left: 5px;"class="btn btn-outline-primary" (click)="overViewOn()">Overview</button>
     </div>
   </div>
+  <div *ngIf="userForm.controls['materialCost'].invalid && (userForm.controls['materialCost'].dirty || userForm.controls['materialCost'].touched)" class="alert alert-danger">
+    <div style="height: 2em; width: 100%;" *ngIf="userForm.controls['materialCost'].errors">
+    Cost has incorrect format!
+  </div>
+</div>
 </form>
 
 <div @fade *ngIf="materials.length > 0">
@@ -49,10 +53,10 @@
      </thead>
      <tbody>
        <tr @fade2 *ngFor="let material of materials">
-         <th scope="row">{{material.materialName}}</th>
+         <th >{{material.materialName}}</th>
          <td>{{material.materialDescription}}</td>
-         <td>{{material.materialCost}}</td>
-         <td><button class="btn btn-outline-danger">Delete</button></td>
+         <td>${{material.materialCost}}</td>
+         <td><button class="btn btn-outline-danger" (click) = "deleteMaterial(material.materialName)">Delete</button></td>
        
         
        </tr>
@@ -60,6 +64,8 @@
       
      </tbody>
    </table>
+
+   <h6 class="text-muted float-right">Total cost : ${{cost}}</h6>
    </div>
 </div>
   <br>

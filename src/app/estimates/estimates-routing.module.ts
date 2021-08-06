@@ -19,6 +19,7 @@ const routes: Routes = [
     {path: 'summary', component: SummaryComponent}
   ] },
   {path: ':id', component: IndividualestimateComponent },
+  { path: '**', component: EstimateshomeComponent }
 ];
 
 @NgModule({

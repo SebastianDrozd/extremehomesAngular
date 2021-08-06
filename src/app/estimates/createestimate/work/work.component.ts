@@ -64,7 +64,7 @@ export class WorkComponent implements OnInit {
   }
   
   deleteTask(id){
-    this.tasks = this.tasks.filter(x => x.id !== id)
+    this.tasks = this.tasks.filter(x => x.description !== id)
   }
   continue(form){
     this.estimateService.setCount(this.estimateService.getCount()+1)

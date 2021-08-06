@@ -24,7 +24,7 @@ import { EstimatesService } from '../../services/estimates.service';
 })
 export class AdditionalinfoComponent implements OnInit {
 
-  wantsMaterials = false;
+  wantsMaterials = true;
   addTable = false;
   addOverView = false;
   constructor(private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
@@ -32,6 +32,7 @@ export class AdditionalinfoComponent implements OnInit {
   count = 1;
   overView = ""
   work;
+  cost = 0;
   ngOnInit(): void {
     this.work = this.estimateService.getWork();
     console.log("startup",this.work)
@@ -44,6 +45,8 @@ export class AdditionalinfoComponent implements OnInit {
     this.materials.push(material)
     console.log(this.materials)
     this.count++;
+    console.log("Material", material.cost, "Cost var", this.cost)
+    this.cost += parseInt(material.materialCost)
   }
   addMaterials(){
     this.wantsMaterials = true;
@@ -63,6 +66,10 @@ export class AdditionalinfoComponent implements OnInit {
   no(){
     this.router.navigate(['../pictures'],  {relativeTo: this.route})
     localStorage.setItem("materials",JSON.stringify({materials : this.materials, overView : this.overView}))
+  }
+
+  deleteMaterial(name){
+    this.materials = this.materials.filter(material => material.materialName !== name)
   }
 
 }

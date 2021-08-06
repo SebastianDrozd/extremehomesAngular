@@ -1,14 +1,36 @@
 import { Component, OnInit } from '@angular/core';
 import { EstimatesService } from '../../services/estimates.service';
 import Swal from 'sweetalert2'
+import { animate, style, transition, trigger } from '@angular/animations';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
-  styleUrls: ['./summary.component.css']
+  styleUrls: ['./summary.component.css'],
+  animations: [
+    trigger('fade', [
+      transition('void => *', [
+        style({opacity: 0}),
+        animate(1000)
+      ])
+    ]),
+    trigger('fade2', [
+      transition('void => *', [
+        style({opacity: 1}),
+        animate(7000)
+      ])
+    ])
+  ]
 })
 export class SummaryComponent implements OnInit {
 
   constructor(private estimateService : EstimatesService) { }
+  wantEditWork = false;
+  wantEditTasks = false;
+  wantEditMaterials = false;
+  wantEditPictures = false
+  wantEditCustomer = false;
+  custEdited = false;
+  workEdited = false;
   customer;
   work;
   pictures=[]
@@ -55,6 +77,83 @@ export class SummaryComponent implements OnInit {
     this.responseUrl= data.id
     console.log("id",this.responseUrl)
   })
+  }
+
+  saveEditWork(){
+    this.estimateService.setWork(this.customer);
+    this.wantEditWork = !this.wantEditWork
+    this.workEdited = true;
+    this.estimateService.setWork(this.work)
+    localStorage.setItem("work",JSON.stringify(this.work))
+  }
+  saveEditCustomer(){
+    this.estimateService.setCustomer(this.customer);
+    localStorage.setItem("customer",JSON.stringify(this.customer))
+    console.log(this.customer)
+    this.wantEditCustomer = !this.wantEditCustomer
+    this.custEdited = true;
+  }
+
+  wantsEditCustomer(){
+    this.wantEditCustomer = !this.wantEditCustomer
+  }
+  wantsEditWork(){
+    this.wantEditWork = !this.wantEditWork
+  }
+
+  handleFirstName(event){
+    this.customer.firstName = event.target.value;
+    console.log("FirstName = ", this.customer.firstName)
+  }
+
+  handleLastName(event){
+    this.customer.lastName = event.target.value;
+    console.log("LastName = ", this.customer.lastname)
+  }
+  handleStreetAddress(event){
+    this.customer.address.streetAddress = event.target.value;
+    console.log("FirstName = ", this.customer.address.streetAddress)
+  }
+  handleCity(event){
+    this.customer.address.city = event.target.value;
+    console.log("FirstName = ", this.customer.address.city)
+  }
+  handleState(event){
+    this.customer.address.state = event.target.value;
+    console.log("FirstName = ", this.customer.address.state)
+  }
+  handlePhone(event){
+    this.customer.phone = event.target.value;
+    console.log("FirstName = ", this.customer.phone)
+  }
+  handleEmail(event){
+    this.customer.email = event.target.value;
+    console.log("FirstName = ", this.customer.email)
+  }
+  handleNotes(event){
+    this.customer.notes = event.target.value;
+    console.log("FirstName = ", this.customer.notes)
+  }
+
+  handleWorkType(event){
+    this.work.workType = event.target.value;
+    console.log("WorkType", this.work.workType)
+  }
+  handleCondition(event){
+    this.work.condition = event.target.value;
+    console.log("condition", this.work.condition)
+  }
+  handleDifficulty(event){
+    this.work.difficulty = event.target.value;
+    console.log("difficulty", this.work.difficulty)
+  }
+  handleHours(event){
+    this.work.hours = event.target.value;
+    console.log("hours", this.work.hours)
+  }
+  handleDescription(event){
+    this.work.workDescription = event.target.value;
+    console.log("workDescription", this.work.workDescription)
   }
 
 

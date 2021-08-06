@@ -74,7 +74,7 @@
       <table class="table tablecust">
           <thead style="background-color: cornflowerblue" class="thead">
             <tr>
-              <th  style="color: white;" scope="col">#</th>
+            
               <th  style="color: white;"scope="col">Task</th>
               <th  style="color: white;"scope="col">Description</th>
               <th  style="color: white;"scope="col"></th>
@@ -83,10 +83,10 @@
           </thead>
           <tbody>
             <tr @fade *ngFor = "let task of tasks">
-              <th scope="row">{{task.id}}</th>
+            
               <td>{{task.taskName}}</td>
               <td>{{task.description}}</td>
-              <td><button class="btn btn-outline-danger" (click) = "deleteTask(task.id)">Delete</button></td>
+              <td><button class="btn btn-outline-danger" (click) = "deleteTask(task.description)">Delete</button></td>
             </tr>
            
           
