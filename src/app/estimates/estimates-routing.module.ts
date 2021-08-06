@@ -11,7 +11,13 @@ import { IndividualestimateComponent } from './individualestimate/individualesti
 
 const routes: Routes = [
   {path: '', component: EstimateshomeComponent },
-  
+  {path: 'createEstimate', component:CreateestimateComponent, children:[
+    {path: '' , component: CreatecustomerComponent},
+    {path: 'work', component : WorkComponent },
+    {path: 'additional-info', component:AdditionalinfoComponent},
+    {path: 'pictures', component:PicturesComponent},
+    {path: 'summary', component: SummaryComponent}
+  ] },
   {path: ':id', component: IndividualestimateComponent },
   { path: '**', component: EstimateshomeComponent }
 ];
