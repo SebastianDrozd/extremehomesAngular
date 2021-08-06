@@ -1,7 +1,7 @@
 <div class="container">
     <br>
     
- <div @fade2 *ngIf="wantsPictures; else elseBlock">
+ <div @fade2 *ngIf="wantsPictures || pictures.length > 0; else elseBlock">
    <br>
    <br>
    
@@ -92,7 +92,7 @@
       <div><p style="" class="float-right">x</p></div>
         <img  style="padding: 1em 2em; "  src="{{picture.imageBase}}" alt="" height="175" width="225">
         <hr>
-        <button class="btn" style="margin-left: 25% ;width: 7em; border: 1px solid rgb(207, 229, 238); background-color: cornflowerblue; color: white; ">Edit</button>
+        <button class="btn" style="margin-left: 25% ;width: 7em; border: 1px solid rgb(207, 229, 238); background-color: cornflowerblue; color: white; " (click) ="editImage(pictures)">Edit</button>
       </div>
   </div>
   <br>

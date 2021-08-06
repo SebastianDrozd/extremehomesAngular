@@ -50,11 +50,25 @@ export class CreatecustomerComponent implements OnInit {
 
    ]
    customerFiltered = []
+   customer={firstName : "",
+              lastName: "",
+               address:{
+                 streetAddress: "", 
+                 city : "",
+                 state : ""
+               },
+             phone : "", 
+             email : "",
+             notes: ""}
   ngOnInit(): void {
     console.log(localStorage)
     if(localStorage.length > 0){
-      console.log(JSON.parse(localStorage.getItem("customer")))
+      this.customer = JSON.parse(localStorage.getItem("customer"));
+      console.log(this.customer)
+      this.selectedOption = this.customer.address.state
+      console.log(this.selectedOption)
     }
+    
   this.estimateService.getCustomers().subscribe(data => {this.customers = data;console.log(this.customers)});
     ///////////////////////////////////////////
     window.addEventListener("scroll", function() {
@@ -95,7 +109,7 @@ export class CreatecustomerComponent implements OnInit {
     console.log(customer)
     if(customer.save == true){
       console.log("Entering true block")
-      this.estimateService.saveCustomer({firstName : customer.firstName,lastName: customer.lasttName, address:{streetAddress: customer.address, city : customer.city, state : customer.state, zipcode : customer.zipcode }, phone : customer.phone, email : customer.email,notes: customer.notes}).subscribe(data => {Swal.fire({
+      this.estimateService.saveCustomer(this.customer).subscribe(data => {Swal.fire({
         title: 'Success',
         text: 'Customer Saved!',
         icon: 'success',
@@ -104,14 +118,15 @@ export class CreatecustomerComponent implements OnInit {
      
     }
     this.estimateService.setCount(this.estimateService.getCount()+1)
-    this.estimateService.setCustomer({firstName : customer.firstName,lastName: customer.lasttName, address:{streetAddress: customer.address, city : customer.city, state : this.state, zipcode : customer.zipcode }, phone : customer.phone, email : customer.email,notes: customer.notes})
-    localStorage.setItem("customer",JSON.stringify({firstName : customer.firstName,lastName: customer.lasttName, address:{streetAddress: customer.address, city : customer.city, state : this.state, zipcode : customer.zipcode }, phone : customer.phone, email : customer.email,notes: customer.notes}))
+    this.estimateService.setCustomer(this.customer)
+    localStorage.setItem("customer",JSON.stringify(this.customer))
     this.router.navigate(['work'], {relativeTo: this.route})
   }
 
   onChange($event){
    this.state =  $event.target.options[$event.target.options.selectedIndex].text
    console.log("state", this.state)
+   this.customer.address.state = this.state
   }
 
 }

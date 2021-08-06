@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EstimatesService } from '../../services/estimates.service';
 import Swal from 'sweetalert2'
 import { animate, style, transition, trigger } from '@angular/animations';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-summary',
   templateUrl: './summary.component.html',
@@ -23,7 +24,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor(private estimateService : EstimatesService) { }
+  constructor(private estimateService : EstimatesService, private router: Router,private route: ActivatedRoute) { }
   wantEditWork = false;
   wantEditTasks = false;
   wantEditMaterials = false;
@@ -154,6 +155,17 @@ export class SummaryComponent implements OnInit {
   handleDescription(event){
     this.work.workDescription = event.target.value;
     console.log("workDescription", this.work.workDescription)
+  }
+  editTask(){
+    this.router.navigate(['../work'], {relativeTo: this.route})
+  }
+
+  addTasks(){
+    this.router.navigate(['../work'], {relativeTo: this.route})
+  }
+
+  editMaterial(){
+    this.router.navigate(['../additional-info'], {relativeTo: this.route})
   }
 
 

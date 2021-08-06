@@ -8,7 +8,7 @@
       </svg></div>
         <div class="col-md-6">
       <label for="validationCustom01" class="form-label">Work Type  <span style="color: red;">*</span></label>
-      <input ngModel name="workType" type="text" class="form-control input-sm" id="validationCustom01" value="" required>
+      <input [(ngModel)]="work.workType" name="workType" type="text" class="form-control input-sm" id="validationCustom01" value="" required>
       <div style="width: 100%;" *ngIf="userForm.controls['workType'].invalid && (userForm.controls['workType'].dirty || userForm.controls['workType'].touched)" class="alert alert-danger">
               <div *ngIf="userForm.controls['workType'].errors.required">
               Work type cannot be left blank
@@ -20,36 +20,36 @@
           
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Difficulty</label>
           <select (change) = "selectDifficulty($event)" class="form-control">
-            <option *ngFor="let o of optionsDifficulty" >{{o.name}}</option>
+            <option [selected]="o.name == selectedDifficulty" *ngFor="let o of optionsDifficulty" >{{o.name}}</option>
             
           </select>
         </div>
         <div class="col-md-2">
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Condition</label>
           <select (change)="selectCondition($event)" class="form-control">
-            <option *ngFor="let o of optionsCondition" >{{o.name}}</option>
+            <option [selected]="o.name == selectedCondition"  *ngFor="let o of optionsCondition" >{{o.name}}</option>
           </select>
         </div>
         <div class="col-md-2">
           <label for="validationCustom02" class="form-label"><small class="text-muted"></small>Hours Anticipated</label>
           <select (change)="selectHours($event)" class="form-control">
-            <option *ngFor="let o of optionsHours">{{o.name}}</option>
+            <option [selected]="o.name == selectedHours"  *ngFor="let o of optionsHours">{{o.name}}</option>
           </select>
         </div>
         
         
         <div style="padding-bottom: 4em; margin-top: 2em;" class="col-md-12">
           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-          <textarea ngModel name="workDescription" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+          <textarea [(ngModel)]="work.workDescription" name="workDescription" class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
         </div>
 
         
         <br>
-        <div *ngIf="!addTasks" class="container" style="display: flex;">
+        <div *ngIf="tasks.length == 0 && !addTasks" class="container" style="display: flex;">
           <h4 style=""><small class="text-muted">Would you like to add tasks?</small></h4><button (click)= "setAddTasks()" style="margin-left: 2em;width: 5em;color: cornflowerblue; border: 1px solid rgb(224, 230, 241);" class="btn">yes</button>
          
         </div>
-        <div @fade *ngIf="addTasks" class="container">
+        <div @fade *ngIf="tasks.length > 0 || addTasks" class="container">
           <h2 style="margin-left: 10px; padding-bottom: 1em;"><small class="text-muted">Add Task</small></h2>
           <div class="row">
             <div style="" class="input-group col-md-2">

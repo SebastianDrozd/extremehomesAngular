@@ -24,7 +24,7 @@ import { EstimatesService } from '../../services/estimates.service';
 })
 export class AdditionalinfoComponent implements OnInit {
 
-  wantsMaterials = true;
+  wantsMaterials = false
   addTable = false;
   addOverView = false;
   constructor(private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
@@ -36,6 +36,9 @@ export class AdditionalinfoComponent implements OnInit {
   ngOnInit(): void {
     this.work = this.estimateService.getWork();
     console.log("startup",this.work)
+    var mats = JSON.parse(localStorage.getItem("materials"))
+    this.materials = mats.materials;
+    this.overView = mats.overView
   }
 
   overViewOn(){

@@ -45,10 +45,22 @@ export class WorkComponent implements OnInit {
     {name : "0-10",value: "0-10"}
    
   ]
+  work = {workType: "",
+     difficulty: "",
+     condition: "",
+      hours: "" , 
+      workDescription : "",
+      tasks: [] }
   constructor(private router : Router, private route : ActivatedRoute, private estimateService : EstimatesService) { }
 
   ngOnInit(): void {
     this.customer = this.estimateService.getCustomer()
+    this.work = JSON.parse(localStorage.getItem("work"))
+    console.log("this woprk", this.work)
+    this.selectedDifficulty = this.work.difficulty
+    this.selectedCondition = this.work.condition
+    this.selectedHours = this.work.hours
+    this.tasks = this.work.tasks
   }
 
   setAddTasks(){
@@ -67,9 +79,10 @@ export class WorkComponent implements OnInit {
     this.tasks = this.tasks.filter(x => x.description !== id)
   }
   continue(form){
+    this.work.tasks = this.tasks
     this.estimateService.setCount(this.estimateService.getCount()+1)
-    this.estimateService.setWork({workType: form.workType, difficulty: this.selectedDifficulty,condition: this.selectedCondition, hours: this.selectedHours , workDescription : form.workDescription,tasks: this.tasks })
-    localStorage.setItem("work",JSON.stringify({workType: form.workType, difficulty: this.selectedDifficulty,condition: this.selectedCondition, hours: this.selectedHours , workDescription : form.workDescription,tasks: this.tasks }))
+    this.estimateService.setWork(this.work)
+    localStorage.setItem("work",JSON.stringify(this.work))
     this.router.navigate(['../additional-info'], {relativeTo: this.route})
   }
 

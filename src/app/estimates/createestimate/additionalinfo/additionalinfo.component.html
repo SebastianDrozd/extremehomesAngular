@@ -1,6 +1,6 @@
 <div class="container">
    
-<div @fade2 class="container" *ngIf="wantsMaterials; else elseBlock">
+<div @fade2 class="container" *ngIf="wantsMaterials || materials.length > 0; else elseBlock">
   <br>
   <br>
   <br>

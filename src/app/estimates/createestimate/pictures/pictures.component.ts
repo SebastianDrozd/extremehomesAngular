@@ -50,6 +50,11 @@ export class PicturesComponent implements OnInit {
    console.log("this",this.index)
    localStorage.setItem("index", "-1");
    this.canvasService.setDude()
+   this.pictures = JSON.parse(localStorage.getItem("pictures"))
+  }
+
+  editImage(picture){
+    
   }
 
   addPictures(){

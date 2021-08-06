@@ -5,7 +5,8 @@
     </svg></div>
     <div class="col-md-6">
       <label for="validationCustom01" class="form-label">First name <span style="color: red;">*</span></label>
-      <input ngModel name="firstName" type="text" class="form-control input-sm" id="validationCustom01" value="" required>
+      
+      <input [(ngModel)]="customer.firstName" name="firstName" type="text" class="form-control input-sm" id="validationCustom01"  required>
       <div *ngIf="userForm.controls['firstName'].invalid && (userForm.controls['firstName'].dirty || userForm.controls['firstName'].touched)" class="alert alert-danger">
         <div *ngIf="userForm.controls['firstName'].errors.required">
        First Name is required.
@@ -15,7 +16,7 @@
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom02" class="form-label">Last name <span style="color: red;">*</span></label>
-      <input ngModel name="lasttName" type="text" class="form-control" id="validationCustom02" value="" required>
+      <input [(ngModel)]="customer.lastName" name="lasttName" type="text" class="form-control" id="validationCustom02" value="" required>
       <div *ngIf="userForm.controls['lasttName'].invalid && (userForm.controls['lasttName'].dirty || userForm.controls['lasttName'].touched)" class="alert alert-danger">
         <div *ngIf="userForm.controls['lasttName'].errors.required">
         Last Name is required.
@@ -24,18 +25,18 @@
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom03" class="form-label">Address</label>
-      <input ngModel name="address" type="text" class="form-control" id="validationCustom03" >
+      <input [(ngModel)]="customer.address.streetAddress" name="address" type="text" class="form-control" id="validationCustom03" >
      
     </div>
     <div class="col-md-3" style="padding-bottom: 1em;">
       <label for="validationCustom03" class="form-label">City</label>
-      <input ngModel name="city" type="text" class="form-control" id="validationCustom03" >
+      <input [(ngModel)]="customer.address.city" name="city" type="text" class="form-control" id="validationCustom03" >
      
     </div>
     <div class="col-md-3">
       <label for="validationCustom03" class="form-label">State</label>
       <select [(ngModel)] = "selectedOption" class="form-control" (change)= "onChange($event)">
-      <option value="" *ngFor= "let o of options">
+      <option [selected]="o.name == selectedOption" *ngFor= "let o of options" >
         {{o.name}}
       </option>
       </select>
@@ -44,7 +45,7 @@
   
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom01"  class="form-label">Phone Number</label>
-      <input ngModel pattern="\d*" name="phone" type="text" class="form-control " id="validationCustom01" value="Mark" >
+      <input [(ngModel)]="customer.phone" pattern="\d*" name="phone" type="text" class="form-control " id="validationCustom01" value="Mark" >
       <div *ngIf="userForm.controls['phone'].invalid && (userForm.controls['phone'].dirty || userForm.controls['phone'].touched)" class="alert alert-danger">
         <div *ngIf="userForm.controls['phone'].errors">
         Phone number is in the incorrect format
@@ -53,7 +54,7 @@
     </div>
     <div class="col-md-6" style="padding-bottom: 1em;">
       <label for="validationCustom01" class="form-label">Email</label>
-      <input ngModel name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" class="form-control" id="validationCustom01" value="Mark" >
+      <input [(ngModel)]="customer.email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" type="text" class="form-control" id="validationCustom01" value="Mark" >
       <div *ngIf="userForm.controls['email'].invalid && (userForm.controls['email'].dirty || userForm.controls['email'].touched)" class="alert alert-danger">
         <div *ngIf="userForm.controls['email'].errors">
         Email is in an incorrect format
@@ -63,7 +64,7 @@
     </div>
     <div style="padding-bottom: 2em;" class="col-md-12">
       <label for="exampleFormControlTextarea1" class="form-label">Notes</label>
-      <textarea ngModel name="notes" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <textarea [(ngModel)]="customer.notes" name="notes" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
     </div>
     <br>
     <br>
@@ -81,7 +82,7 @@
       </div>
     </div>
     <div class="col-2">
-      {{selectedOption}}
+    
       <button type="submit" [disabled] ="!userForm.valid" style="background-color: #4bbd4b; border: none;" class="btn btn-primary float-right" (click)="continue(userForm.value)" >Continue </button>
     </div>
     <br>
